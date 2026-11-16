@@ -15,11 +15,11 @@ import {
 
 const INITIAL_KNOB_SIDE: KnobSide = 'left'
 
-/** `?stumble=4` plays the four-step variant. */
+/** Four steps is the default. `?stumble=6` plays the six-step variant. */
 const STUMBLE: StumbleVariant =
-  new URLSearchParams(window.location.search).get('stumble') === '4'
-    ? 'four'
-    : 'six'
+  new URLSearchParams(window.location.search).get('stumble') === '6'
+    ? 'six'
+    : 'four'
 
 export default function App() {
   const [knobSide, setKnobSide] = useState<KnobSide>(INITIAL_KNOB_SIDE)

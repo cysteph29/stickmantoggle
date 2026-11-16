@@ -145,6 +145,17 @@ function solveArm(rig: PushRig, grip: { x: number; y: number }, bend: number) {
 
 const mix = (a: number, b: number, t: number) => a + (b - a) * t
 
+/**
+ * Shortest-arc blend. `b - a` is wrapped into [-180, 180] before the plain
+ * mix, so a release from a gripping angle never sweeps the long way around.
+ */
+const mixAngle = (a: number, b: number, t: number) => {
+  let diff = b - a
+  while (diff > 180) diff -= 360
+  while (diff < -180) diff += 360
+  return mix(a, a + diff, t)
+}
+
 /** Folds `drive` into the hip so the solvers see the final hip position. */
 function driven(rig: PushRig): PushRig {
   return rig.drive ? { ...rig, hipX: rig.hipX + rig.drive, drive: 0 } : rig
@@ -160,10 +171,10 @@ export function rigToPose(input: PushRig): StickPose {
     torso: rig.torso,
     chest: rig.chest,
     head: rig.head,
-    upperArmLeft: mix(rig.upperArmLeft, nearArm.upper, rig.grip),
-    forearmLeft: mix(rig.forearmLeft, nearArm.lower, rig.grip),
-    upperArmRight: mix(rig.upperArmRight, farArm.upper, rig.grip),
-    forearmRight: mix(rig.forearmRight, farArm.lower, rig.grip),
+    upperArmLeft: mixAngle(rig.upperArmLeft, nearArm.upper, rig.grip),
+    forearmLeft: mixAngle(rig.forearmLeft, nearArm.lower, rig.grip),
+    upperArmRight: mixAngle(rig.upperArmRight, farArm.upper, rig.grip),
+    forearmRight: mixAngle(rig.forearmRight, farArm.lower, rig.grip),
     thighLeft: nearLeg.upper,
     shinLeft: nearLeg.lower,
     thighRight: farLeg.upper,
