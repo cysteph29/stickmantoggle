@@ -1,0 +1,878 @@
+[
+  {
+    "t": 4.4,
+    "theme": "--theme: 0; --figure-theme: 0;",
+    "hip": "translate(30.143719999999973 523)",
+    "knob": 270.5
+  },
+  {
+    "t": 4.408333333333333,
+    "theme": "--theme: 0; --figure-theme: 0;",
+    "hip": "translate(30.143719999999973 523)",
+    "knob": 270.5
+  },
+  {
+    "t": 4.416666666666667,
+    "theme": "--theme: 0; --figure-theme: 0;",
+    "hip": "translate(30.143719999999973 523)",
+    "knob": 270.5
+  },
+  {
+    "t": 4.425,
+    "theme": "--theme: 0; --figure-theme: 0;",
+    "hip": "translate(30.143719999999973 523)",
+    "knob": 270.5
+  },
+  {
+    "t": 4.433333333333334,
+    "theme": "--theme: 0; --figure-theme: 0;",
+    "hip": "translate(30.143719999999973 523)",
+    "knob": 270.5
+  },
+  {
+    "t": 4.441666666666666,
+    "theme": "--theme: 0; --figure-theme: 0;",
+    "hip": "translate(30.143719999999973 523)",
+    "knob": 270.5
+  },
+  {
+    "t": 4.45,
+    "theme": "--theme: 0; --figure-theme: 0;",
+    "hip": "translate(30.143719999999973 523)",
+    "knob": 270.5
+  },
+  {
+    "t": 4.458333333333333,
+    "theme": "--theme: 0.000686; --figure-theme: 0;",
+    "hip": "translate(44.672249810919325 522.99953)",
+    "knob": 289.56254822079245
+  },
+  {
+    "t": 4.466666666666667,
+    "theme": "--theme: 0.002743; --figure-theme: 0;",
+    "hip": "translate(58.14509012034023 522.996238)",
+    "knob": 307.90886414103977
+  },
+  {
+    "t": 4.475,
+    "theme": "--theme: 0.006173; --figure-theme: 0;",
+    "hip": "translate(71.26207124658629 522.987305)",
+    "knob": 325.83849597530855
+  },
+  {
+    "t": 4.483333333333333,
+    "theme": "--theme: 0.010974; --figure-theme: 0;",
+    "hip": "translate(84.5609060356488 522.969907)",
+    "knob": 343.6009790459858
+  },
+  {
+    "t": 4.491666666666666,
+    "theme": "--theme: 0.017147; --figure-theme: 0;",
+    "hip": "translate(98.43063084949767 522.941225)",
+    "knob": 361.3983262099446
+  },
+  {
+    "t": 4.5,
+    "theme": "--theme: 0.024691; --figure-theme: 0;",
+    "hip": "translate(113.12503055923256 522.898438)",
+    "knob": 379.38754413580233
+  },
+  {
+    "t": 4.508333333333334,
+    "theme": "--theme: 0.033608; --figure-theme: 0;",
+    "hip": "translate(128.77754723905673 522.838723)",
+    "knob": 397.6850476853624
+  },
+  {
+    "t": 4.516666666666667,
+    "theme": "--theme: 0.043896; --figure-theme: 0;",
+    "hip": "translate(145.41476460473655 522.759259)",
+    "knob": 416.3691585109572
+  },
+  {
+    "t": 4.525,
+    "theme": "--theme: 0.055556; --figure-theme: 0;",
+    "hip": "translate(162.96967211913645 522.657227)",
+    "knob": 435.48253200000016
+  },
+  {
+    "t": 4.533333333333333,
+    "theme": "--theme: 0.068587; --figure-theme: 0;",
+    "hip": "translate(181.29679783152233 522.529804)",
+    "knob": 455.0366090103213
+  },
+  {
+    "t": 4.541666666666667,
+    "theme": "--theme: 0.08299; --figure-theme: 0;",
+    "hip": "translate(200.18557124909543 522.374167)",
+    "knob": 475.01406013769963
+  },
+  {
+    "t": 4.55,
+    "theme": "--theme: 0.098765; --figure-theme: 0;",
+    "hip": "translate(219.37352142936012 522.1875)",
+    "knob": 495.3711347160489
+  },
+  {
+    "t": 4.558333333333334,
+    "theme": "--theme: 0.115912; --figure-theme: 0;",
+    "hip": "translate(238.5615714058775 521.966979)",
+    "knob": 516.0421750959674
+  },
+  {
+    "t": 4.566666666666666,
+    "theme": "--theme: 0.134431; --figure-theme: 0;",
+    "hip": "translate(257.4272812227851 521.709779)",
+    "knob": 536.9419908319405
+  },
+  {
+    "t": 4.575,
+    "theme": "--theme: 0.154321; --figure-theme: 0;",
+    "hip": "translate(275.6380904307269 521.413086)",
+    "knob": 557.968153654321
+  },
+  {
+    "t": 4.583333333333333,
+    "theme": "--theme: 0.175583; --figure-theme: 0;",
+    "hip": "translate(292.8666078532854 521.074076)",
+    "knob": 579.0055598136987
+  },
+  {
+    "t": 4.591666666666667,
+    "theme": "--theme: 0.198217; --figure-theme: 0;",
+    "hip": "translate(308.925571659085 520.689922)",
+    "knob": 599.9287365761934
+  },
+  {
+    "t": 4.6,
+    "theme": "--theme: 0.222222; --figure-theme: 0;",
+    "hip": "translate(323.6106566176979 520.257813)",
+    "knob": 620.6041289999991
+  },
+  {
+    "t": 4.608333333333333,
+    "theme": "--theme: 0.247599; --figure-theme: 0;",
+    "hip": "translate(336.6679504791419 519.774922)",
+    "knob": 640.8946514238064
+  },
+  {
+    "t": 4.616666666666666,
+    "theme": "--theme: 0.274349; --figure-theme: 0;",
+    "hip": "translate(347.8889385002199 519.238424)",
+    "knob": 660.6619521862997
+  },
+  {
+    "t": 4.625,
+    "theme": "--theme: 0.302469; --figure-theme: 0;",
+    "hip": "translate(357.14575715427395 518.645508)",
+    "knob": 679.7687483456788
+  },
+  {
+    "t": 4.633333333333334,
+    "theme": "--theme: 0.331961; --figure-theme: 0;",
+    "hip": "translate(364.40593311895196 517.993348)",
+    "knob": 698.0832781680591
+  },
+  {
+    "t": 4.641666666666667,
+    "theme": "--theme: 0.362826; --figure-theme: 0;",
+    "hip": "translate(369.7457946132606 517.279113)",
+    "knob": 715.4815719040323
+  },
+  {
+    "t": 4.65,
+    "theme": "--theme: 0.395062; --figure-theme: 0;",
+    "hip": "translate(373.3643109898728 516.5)",
+    "knob": 731.8498792839508
+  },
+  {
+    "t": 4.658333333333333,
+    "theme": "--theme: 0.428669; --figure-theme: 0;",
+    "hip": "translate(375.5973832542249 516.505286)",
+    "knob": 747.0889438623002
+  },
+  {
+    "t": 4.666666666666667,
+    "theme": "--theme: 0.463649; --figure-theme: 0;",
+    "hip": "translate(376.9313729060035 516.521117)",
+    "knob": 761.1163199896786
+  },
+  {
+    "t": 4.675,
+    "theme": "--theme: 0.5; --figure-theme: 0;",
+    "hip": "translate(377.9868 516.547408)",
+    "knob": 773.8689379999996
+  },
+  {
+    "t": 4.683333333333334,
+    "theme": "--theme: 0.536351; --figure-theme: 0;",
+    "hip": "translate(379.079438 516.584021)",
+    "knob": 785.3071174890428
+  },
+  {
+    "t": 4.691666666666666,
+    "theme": "--theme: 0.571331; --figure-theme: 1;",
+    "hip": "translate(380.217734 516.630762)",
+    "knob": 795.4169873146374
+  },
+  {
+    "t": 4.7,
+    "theme": "--theme: 0.604938; --figure-theme: 1;",
+    "hip": "translate(381.401659 516.687384)",
+    "knob": 804.2131978641976
+  },
+  {
+    "t": 4.708333333333333,
+    "theme": "--theme: 0.637174; --figure-theme: 1;",
+    "hip": "translate(382.631228 516.753588)",
+    "knob": 811.7426327900547
+  },
+  {
+    "t": 4.716666666666667,
+    "theme": "--theme: 0.668039; --figure-theme: 1;",
+    "hip": "translate(383.906454 516.829025)",
+    "knob": 818.0869749540143
+  },
+  {
+    "t": 4.725,
+    "theme": "--theme: 0.697531; --figure-theme: 1;",
+    "hip": "translate(385.227309 516.913293)",
+    "knob": 823.365533024691
+  },
+  {
+    "t": 4.733333333333333,
+    "theme": "--theme: 0.725651; --figure-theme: 1;",
+    "hip": "translate(386.593807 517.005949)",
+    "knob": 827.7386828589605
+  },
+  {
+    "t": 4.741666666666666,
+    "theme": "--theme: 0.752401; --figure-theme: 1;",
+    "hip": "translate(388.005965 517.106505)",
+    "knob": 831.4105737792073
+  },
+  {
+    "t": 4.75,
+    "theme": "--theme: 0.777778; --figure-theme: 1;",
+    "hip": "translate(389.463749 517.214425)",
+    "knob": 834.632032
+  },
+  {
+    "t": 4.758333333333334,
+    "theme": "--theme: 0.801783; --figure-theme: 1;",
+    "hip": "translate(390.967177 517.329141)",
+    "knob": 837.648402
+  },
+  {
+    "t": 4.766666666666667,
+    "theme": "--theme: 0.824417; --figure-theme: 1;",
+    "hip": "translate(392.516266 517.450047)",
+    "knob": 840.517889
+  },
+  {
+    "t": 4.775,
+    "theme": "--theme: 0.845679; --figure-theme: 1;",
+    "hip": "translate(394.11098 517.576503)",
+    "knob": 843.247264
+  },
+  {
+    "t": 4.783333333333333,
+    "theme": "--theme: 0.865569; --figure-theme: 1;",
+    "hip": "translate(395.751337 517.70784)",
+    "knob": 845.843051
+  },
+  {
+    "t": 4.791666666666667,
+    "theme": "--theme: 0.884088; --figure-theme: 1;",
+    "hip": "translate(397.437357 517.843366)",
+    "knob": 848.311444
+  },
+  {
+    "t": 4.8,
+    "theme": "--theme: 0.901235; --figure-theme: 1;",
+    "hip": "translate(399.169 517.982362)",
+    "knob": 850.658238
+  },
+  {
+    "t": 4.808333333333334,
+    "theme": "--theme: 0.91701; --figure-theme: 1;",
+    "hip": "translate(400.946287 518.124094)",
+    "knob": 852.889032
+  },
+  {
+    "t": 4.816666666666666,
+    "theme": "--theme: 0.931413; --figure-theme: 1;",
+    "hip": "translate(402.769238 518.267815)",
+    "knob": 855.009147
+  },
+  {
+    "t": 4.825,
+    "theme": "--theme: 0.944444; --figure-theme: 1;",
+    "hip": "translate(404.637811 518.412761)",
+    "knob": 857.023572
+  },
+  {
+    "t": 4.833333333333333,
+    "theme": "--theme: 0.956104; --figure-theme: 1;",
+    "hip": "translate(406.552027 518.558169)",
+    "knob": 858.937134
+  },
+  {
+    "t": 4.841666666666667,
+    "theme": "--theme: 0.966392; --figure-theme: 1;",
+    "hip": "translate(408.51191 518.703271)",
+    "knob": 860.754429
+  },
+  {
+    "t": 4.85,
+    "theme": "--theme: 0.975309; --figure-theme: 1;",
+    "hip": "translate(410.517413 518.847296)",
+    "knob": 862.479774
+  },
+  {
+    "t": 4.858333333333333,
+    "theme": "--theme: 0.982853; --figure-theme: 1;",
+    "hip": "translate(412.568558 518.989486)",
+    "knob": 864.117352
+  },
+  {
+    "t": 4.866666666666666,
+    "theme": "--theme: 0.989026; --figure-theme: 1;",
+    "hip": "translate(414.665372 519.12909)",
+    "knob": 865.671153
+  },
+  {
+    "t": 4.875,
+    "theme": "--theme: 0.993827; --figure-theme: 1;",
+    "hip": "translate(416.807804 519.265367)",
+    "knob": 867.144929
+  },
+  {
+    "t": 4.883333333333334,
+    "theme": "--theme: 0.997257; --figure-theme: 1;",
+    "hip": "translate(418.995879 519.397598)",
+    "knob": 868.542324
+  },
+  {
+    "t": 4.891666666666667,
+    "theme": "--theme: 0.999314; --figure-theme: 1;",
+    "hip": "translate(421.229624 519.525086)",
+    "knob": 869.866816
+  },
+  {
+    "t": 4.9,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(423.508986 519.647153)",
+    "knob": 871.121686
+  },
+  {
+    "t": 4.908333333333333,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(425.83399 519.763156)",
+    "knob": 872.310118
+  },
+  {
+    "t": 4.916666666666667,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(428.204667 519.872484)",
+    "knob": 873.435159
+  },
+  {
+    "t": 4.925,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(430.620958 519.974555)",
+    "knob": 874.499686
+  },
+  {
+    "t": 4.933333333333334,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(433.082892 520.068831)",
+    "knob": 875.506497
+  },
+  {
+    "t": 4.941666666666666,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(435.590499 520.154815)",
+    "knob": 876.458269
+  },
+  {
+    "t": 4.95,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(438.14372 520.232051)",
+    "knob": 877.357535
+  },
+  {
+    "t": 4.958333333333333,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(440.028609 520.300131)",
+    "knob": 878.206757
+  },
+  {
+    "t": 4.966666666666667,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(441.741643 520.358695)",
+    "knob": 879.008296
+  },
+  {
+    "t": 4.975,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(443.282782 520.407434)",
+    "knob": 879.764388
+  },
+  {
+    "t": 4.983333333333333,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(444.652048 520.44609)",
+    "knob": 880.477206
+  },
+  {
+    "t": 4.991666666666666,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(445.849453 520.474458)",
+    "knob": 881.148834
+  },
+  {
+    "t": 5,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(446.87497 520.492389)",
+    "knob": 881.78125
+  },
+  {
+    "t": 5.008333333333334,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(447.728613 520.499788)",
+    "knob": 882.376373
+  },
+  {
+    "t": 5.016666666666667,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(448.410389 520.496757)",
+    "knob": 882.936047
+  },
+  {
+    "t": 5.025,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(448.920282 520.48362)",
+    "knob": 883.46202
+  },
+  {
+    "t": 5.033333333333333,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(449.379702 520.460518)",
+    "knob": 883.955989
+  },
+  {
+    "t": 5.041666666666667,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(449.99287 520.427686)",
+    "knob": 884.419583
+  },
+  {
+    "t": 5.05,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(450.639175 520.385456)",
+    "knob": 884.854348
+  },
+  {
+    "t": 5.058333333333334,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(451.318623 520.334256)",
+    "knob": 885.261784
+  },
+  {
+    "t": 5.066666666666666,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(452.031223 520.274605)",
+    "knob": 885.643328
+  },
+  {
+    "t": 5.075,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(452.776959 520.207107)",
+    "knob": 886.000344
+  },
+  {
+    "t": 5.083333333333333,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(453.555838 520.132446)",
+    "knob": 886.334154
+  },
+  {
+    "t": 5.091666666666667,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(454.367871 520.051377)",
+    "knob": 886.646025
+  },
+  {
+    "t": 5.1,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(455.213038 519.964723)",
+    "knob": 886.937157
+  },
+  {
+    "t": 5.108333333333333,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(456.091349 519.873362)",
+    "knob": 887.208712
+  },
+  {
+    "t": 5.116666666666666,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(457.002815 519.778217)",
+    "knob": 887.461799
+  },
+  {
+    "t": 5.125,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(457.947413 519.680255)",
+    "knob": 887.697474
+  },
+  {
+    "t": 5.133333333333334,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(458.925155 519.580467)",
+    "knob": 887.916751
+  },
+  {
+    "t": 5.141666666666667,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(459.936054 519.479863)",
+    "knob": 888.120601
+  },
+  {
+    "t": 5.15,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(460.980084 519.379463)",
+    "knob": 888.309942
+  },
+  {
+    "t": 5.158333333333333,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(462.057257 519.280285)",
+    "knob": 888.485657
+  },
+  {
+    "t": 5.166666666666667,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(463.167588 519.183332)",
+    "knob": 888.64859
+  },
+  {
+    "t": 5.175,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(464.31105 519.089587)",
+    "knob": 888.799536
+  },
+  {
+    "t": 5.183333333333334,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(465.487655 519)",
+    "knob": 888.939259
+  },
+  {
+    "t": 5.191666666666666,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(466.697418 518.915478)",
+    "knob": 889.068484
+  },
+  {
+    "t": 5.2,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(467.940311 518.836877)",
+    "knob": 889.187897
+  },
+  {
+    "t": 5.208333333333333,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(469.216347 518.764995)",
+    "knob": 889.298151
+  },
+  {
+    "t": 5.216666666666667,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(470.525543 518.700557)",
+    "knob": 889.399867
+  },
+  {
+    "t": 5.225,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(471.867868 518.644219)",
+    "knob": 889.493628
+  },
+  {
+    "t": 5.233333333333333,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(473.243336 518.59655)",
+    "knob": 889.579989
+  },
+  {
+    "t": 5.241666666666666,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(474.651964 518.558033)",
+    "knob": 889.659477
+  },
+  {
+    "t": 5.25,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(476.09372 518.529058)",
+    "knob": 889.732582
+  },
+  {
+    "t": 5.258333333333334,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(477.568619 518.50992)",
+    "knob": 889.799771
+  },
+  {
+    "t": 5.266666666666667,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(479.076681 518.500811)",
+    "knob": 889.861483
+  },
+  {
+    "t": 5.275,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(480.617868 518.505473)",
+    "knob": 889.918127
+  },
+  {
+    "t": 5.283333333333333,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(482.192198 518.538849)",
+    "knob": 889.970093
+  },
+  {
+    "t": 5.291666666666667,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(483.799692 518.602223)",
+    "knob": 890.01774
+  },
+  {
+    "t": 5.3,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(485.440311 518.694951)",
+    "knob": 890.061407
+  },
+  {
+    "t": 5.308333333333334,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(487.114073 518.816096)",
+    "knob": 890.101411
+  },
+  {
+    "t": 5.316666666666666,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(488.821 518.96443)",
+    "knob": 890.138045
+  },
+  {
+    "t": 5.325,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(490.561049 519.13845)",
+    "knob": 890.171584
+  },
+  {
+    "t": 5.333333333333333,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(492.334243 519.336392)",
+    "knob": 890.202283
+  },
+  {
+    "t": 5.341666666666667,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(494.140602 519.556255)",
+    "knob": 890.230377
+  },
+  {
+    "t": 5.35,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(495.980084 519.795806)",
+    "knob": 890.256084
+  },
+  {
+    "t": 5.358333333333333,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(497.852709 520.052621)",
+    "knob": 890.279607
+  },
+  {
+    "t": 5.366666666666666,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(499.7585 520.324101)",
+    "knob": 890.301131
+  },
+  {
+    "t": 5.375,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(501.697413 520.607491)",
+    "knob": 890.320828
+  },
+  {
+    "t": 5.383333333333334,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(503.669469 520.899922)",
+    "knob": 890.338853
+  },
+  {
+    "t": 5.391666666666667,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(505.674694 521.198435)",
+    "knob": 890.355352
+  },
+  {
+    "t": 5.4,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(507.713038 521.5)",
+    "knob": 890.370456
+  },
+  {
+    "t": 5.408333333333333,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(509.784526 521.801565)",
+    "knob": 890.384284
+  },
+  {
+    "t": 5.416666666666667,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(511.889183 522.100078)",
+    "knob": 890.396946
+  },
+  {
+    "t": 5.425,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(514.026958 522.392509)",
+    "knob": 890.408541
+  },
+  {
+    "t": 5.433333333333334,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(516.197878 522.675899)",
+    "knob": 890.419161
+  },
+  {
+    "t": 5.441666666666666,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(518.401967 522.947379)",
+    "knob": 890.428886
+  },
+  {
+    "t": 5.45,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(520.639174 523.204194)",
+    "knob": 890.437792
+  },
+  {
+    "t": 5.458333333333333,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(522.909525 523.443745)",
+    "knob": 890.445945
+  },
+  {
+    "t": 5.466666666666667,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(525.213047 523.663608)",
+    "knob": 890.453406
+  },
+  {
+    "t": 5.470000000000001,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(526.14372 523.745532)",
+    "knob": 890.45621
+  },
+  {
+    "t": 5.475,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(527.337079 523.86155)",
+    "knob": 890.460231
+  },
+  {
+    "t": 5.483333333333333,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(529.213157 524.03557)",
+    "knob": 890.466471
+  },
+  {
+    "t": 5.491666666666666,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(530.948197 524.183904)",
+    "knob": 890.472169
+  },
+  {
+    "t": 5.5,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(532.542157 524.305049)",
+    "knob": 890.477369
+  },
+  {
+    "t": 5.508333333333334,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(533.99506 524.397777)",
+    "knob": 890.482107
+  },
+  {
+    "t": 5.516666666666667,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(535.306919 524.461151)",
+    "knob": 890.486418
+  },
+  {
+    "t": 5.525,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(536.477704 524.494527)",
+    "knob": 890.490335
+  },
+  {
+    "t": 5.533333333333333,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(537.507431 524.498782)",
+    "knob": 890.493886
+  },
+  {
+    "t": 5.541666666666667,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(538.39611 524.485092)",
+    "knob": 890.4971
+  },
+  {
+    "t": 5.55,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(539.14372 524.456295)",
+    "knob": 890.5
+  },
+  {
+    "t": 5.558333333333334,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(539.43901 524.41261)",
+    "knob": 890.5
+  },
+  {
+    "t": 5.566666666666666,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(539.756464 524.354367)",
+    "knob": 890.5
+  },
+  {
+    "t": 5.575,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(540.096075 524.282013)",
+    "knob": 890.5
+  },
+  {
+    "t": 5.583333333333333,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(540.457846 524.196097)",
+    "knob": 890.5
+  },
+  {
+    "t": 5.591666666666667,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(540.841783 524.097271)",
+    "knob": 890.5
+  },
+  {
+    "t": 5.6,
+    "theme": "--theme: 1; --figure-theme: 1;",
+    "hip": "translate(541.247875 523.98629)",
+    "knob": 890.5
+  }
+]

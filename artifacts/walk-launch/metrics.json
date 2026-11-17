@@ -1,0 +1,42 @@
+{
+  "offset": -198,
+  "largestError": 7.105427357601002e-14,
+  "catch": {
+    "bounds": {
+      "left": 387.0287780761719,
+      "right": 558.8210754394531,
+      "top": 395.18111419677734,
+      "bottom": 596.090934753418
+    },
+    "headKnobClearance": 223.96772257531978,
+    "knobX": "890.5",
+    "clip": null
+  },
+  "final": {
+    "bounds": {
+      "left": 389.1437072753906,
+      "right": 432.07793045043945,
+      "top": 381.27716064453125,
+      "bottom": 594.6955261230469
+    },
+    "headKnobClearance": 314.46726807221194,
+    "knobX": "890.5",
+    "clip": null,
+    "transforms": {
+      "character-root": "translate(409.14372000000003 495.27715)",
+      "torso-pivot": "rotate(0)",
+      "chest-pivot": "rotate(0)",
+      "head-pivot": "rotate(0)",
+      "upper-arm-left-pivot": "rotate(14)",
+      "forearm-left-pivot": "rotate(-8)",
+      "upper-arm-right-pivot": "rotate(7)",
+      "forearm-right-pivot": "rotate(-4)",
+      "thigh-left-pivot": "rotate(10.166090867212581)",
+      "shin-left-pivot": "rotate(-12.000002665786605)",
+      "thigh-right-pivot": "rotate(1.5776556113879427)",
+      "shin-right-pivot": "rotate(-12.000002665786605)",
+      "knob": "890.5"
+    }
+  },
+  "defaultUnchanged": true
+}

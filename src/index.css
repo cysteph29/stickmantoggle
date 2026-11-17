@@ -85,34 +85,6 @@ body {
   outline-offset: 2px;
 }
 
-.social-links {
-  position: fixed;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  font-size: 12px;
-}
-
-.social-links a {
-  color: var(--ink);
-  text-decoration: none;
-  padding: 6px 0;
-}
-
-.social-links a:hover {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.social-links a:focus-visible {
-  outline: 1px solid var(--ink);
-  outline-offset: 4px;
-}
-
 .stage {
   position: fixed;
   inset: 0;

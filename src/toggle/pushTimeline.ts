@@ -30,7 +30,8 @@ const R = INITIAL_RIG
 
 export function createPushTimeline(
   svg: SVGSVGElement,
-  onComplete: () => void,
+  onComplete: (rig: PushRig) => void,
+  renderRig: (svg: SVGSVGElement, rig: PushRig, time: number) => void = applyRig,
 ) {
   const rig: PushRig = { ...INITIAL_RIG }
   const appearance = { theme: 0 }
@@ -114,7 +115,7 @@ export function createPushTimeline(
           }
         }
       }
-      applyRig(svg, upperBody ? upperBody(now) : rig)
+      renderRig(svg, upperBody ? upperBody(now) : rig, now)
       document.documentElement.style.setProperty('--theme', String(appearance.theme))
       // Opposing ink/background fades necessarily cross through equal gray.
       // Swap the figure's ink at the contrast crossover; keep the background
@@ -125,7 +126,7 @@ export function createPushTimeline(
       document.documentElement.style.setProperty('--figure-theme', String(figureTheme))
       for (const entry of undo) rig[entry.key] = entry.value
     },
-    onComplete,
+    onComplete: () => onComplete({ ...rig }),
   })
 
   const tremble = (amount: number, duration: number) => {

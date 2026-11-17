@@ -2,13 +2,17 @@ import { useEffect, useRef, useState } from 'react'
 import { DebugPanel } from './components/DebugPanel.tsx'
 import { ToggleStage } from './components/ToggleStage.tsx'
 import {
-  CHARACTER_HIP_X,
-  CHARACTER_HIP_Y,
   knobCenterX,
 } from './toggle/layout.ts'
 import type { KnobSide } from './toggle/layout.ts'
-import { INITIAL_RIG, applyRig } from './toggle/pushRig.ts'
+import { INITIAL_RIG, applyRig, type PushRig } from './toggle/pushRig.ts'
 import { createPushTimeline } from './toggle/pushTimeline.ts'
+
+import { createWalkPushTimeline } from './toggle/walkPush.ts'
+import { WALK_REST } from './toggle/walkComposition.ts'
+import { createWalkIntro, prepareWalk } from './toggle/walkIntro.ts'
+
+const WALK_INTRO = new URLSearchParams(window.location.search).get('intro') === 'walk'
 
 const INITIAL_KNOB_SIDE: KnobSide = 'left'
 
@@ -18,8 +22,7 @@ const SHOW_DEBUG = new URLSearchParams(window.location.search).has('debug')
 export default function App() {
   const [knobSide, setKnobSide] = useState<KnobSide>(INITIAL_KNOB_SIDE)
   const [showJoints, setShowJoints] = useState(SHOW_DEBUG)
-  const [hipX, setHipX] = useState(CHARACTER_HIP_X)
-  const [hipY, setHipY] = useState(CHARACTER_HIP_Y)
+  const [renderRig, setRenderRig] = useState<PushRig>(WALK_INTRO ? WALK_REST : INITIAL_RIG)
   const svgRef = useRef<SVGSVGElement>(null)
   const timelineRef = useRef<gsap.core.Timeline | null>(null)
 
@@ -31,17 +34,33 @@ export default function App() {
     timelineRef.current = null
     document.documentElement.style.setProperty('--theme', side === 'right' ? '1' : '0')
     document.documentElement.style.setProperty('--figure-theme', side === 'right' ? '1' : '0')
+    const rest = WALK_INTRO && side === 'left'
+      ? WALK_REST
+      : { ...INITIAL_RIG, knobX: knobCenterX(side) }
+    setRenderRig(rest)
     if (svgRef.current) {
-      applyRig(svgRef.current, { ...INITIAL_RIG, knobX: knobCenterX(side) })
+      applyRig(svgRef.current, rest)
+      if (WALK_INTRO) prepareWalk(svgRef.current)
     }
   }
 
   function push() {
     if (knobSide !== 'left' || timelineRef.current || !svgRef.current) return
-    timelineRef.current = createPushTimeline(
-      svgRef.current,
-      () => setKnobSide('right'),
-    )
+    const svg = svgRef.current
+    const startPush = () => {
+      svg.getElementById('walk-actor')?.setAttribute('opacity', '1')
+      timelineRef.current = (WALK_INTRO ? createWalkPushTimeline : createPushTimeline)(svg, (finishedRig) => {
+        // React must reconcile the completed pose, not a new initial grip.
+        setRenderRig(finishedRig)
+        setKnobSide('right')
+        timelineRef.current = null
+      })
+    }
+    if (WALK_INTRO && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      timelineRef.current = createWalkIntro(svg, startPush)
+    } else {
+      startPush()
+    }
   }
 
   function chooseKnobSide(side: KnobSide) {
@@ -52,8 +71,6 @@ export default function App() {
   function reset() {
     restoreRestPose(INITIAL_KNOB_SIDE)
     setKnobSide(INITIAL_KNOB_SIDE)
-    setHipX(CHARACTER_HIP_X)
-    setHipY(CHARACTER_HIP_Y)
   }
 
   return (
@@ -68,18 +85,12 @@ export default function App() {
         />
       )}
       <ToggleStage
-        knobX={knobCenterX(knobSide)}
-        hipX={hipX}
-        hipY={hipY}
+        walkIntro={WALK_INTRO}
+        rig={renderRig}
         showJoints={showJoints}
         svgRef={svgRef}
         onKnobClick={push}
       />
-      <footer className="social-links" aria-label="Social links">
-        <a href="https://github.com/cysteph29" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com/in/cyril-stephen" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://x.com/cyril_design" target="_blank" rel="noopener noreferrer">X</a>
-      </footer>
     </main>
   )
 }

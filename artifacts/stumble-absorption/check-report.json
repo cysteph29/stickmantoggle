@@ -1,0 +1,96 @@
+{
+  "sampleRate": 1000,
+  "labels": {
+    "push1": 0.45,
+    "recoil": 1.55,
+    "step": 2.25,
+    "push2": 3.25,
+    "break": 4.45,
+    "stumble": 4.65,
+    "catch": 6.75,
+    "settle": 7.15,
+    "stand": 8.65,
+    "rest": 10.48,
+    "closeStance": 10
+  },
+  "maxReach": 95.84203146546153,
+  "legLength": 94,
+  "minKneeBendDegrees": 1.6718829918232399,
+  "maxJointChangePerMillisecond": 2.236782088635124,
+  "maxFootError": 1.8520314654615606,
+  "rows": [
+    {
+      "contact": 0.82,
+      "millisecondsAfterContact": -40,
+      "beforeHipY": 522.563815,
+      "afterHipY": 524.0013442028034
+    },
+    {
+      "contact": 0.82,
+      "millisecondsAfterContact": 0,
+      "beforeHipY": 523.745532,
+      "afterHipY": 525.8057041083642
+    },
+    {
+      "contact": 0.82,
+      "millisecondsAfterContact": 40,
+      "beforeHipY": 524.412825,
+      "afterHipY": 527.0543599055609
+    },
+    {
+      "contact": 0.82,
+      "millisecondsAfterContact": 80,
+      "beforeHipY": 524.456295,
+      "afterHipY": 527.5
+    },
+    {
+      "contact": 0.82,
+      "millisecondsAfterContact": 120,
+      "beforeHipY": 524.118034,
+      "afterHipY": 527.3019377358048
+    },
+    {
+      "contact": 0.82,
+      "millisecondsAfterContact": 160,
+      "beforeHipY": 523.5,
+      "afterHipY": 526.7469796037175
+    },
+    {
+      "contact": 1.28,
+      "millisecondsAfterContact": -40,
+      "beforeHipY": 520.881966,
+      "afterHipY": 523.75
+    },
+    {
+      "contact": 1.28,
+      "millisecondsAfterContact": 0,
+      "beforeHipY": 521.5,
+      "afterHipY": 524.0868240888335
+    },
+    {
+      "contact": 1.28,
+      "millisecondsAfterContact": 40,
+      "beforeHipY": 522.290943,
+      "afterHipY": 524.3830222215595
+    },
+    {
+      "contact": 1.28,
+      "millisecondsAfterContact": 80,
+      "beforeHipY": 523.118034,
+      "afterHipY": 524.5
+    },
+    {
+      "contact": 1.28,
+      "millisecondsAfterContact": 120,
+      "beforeHipY": 523.838261,
+      "afterHipY": 524.5
+    },
+    {
+      "contact": 1.28,
+      "millisecondsAfterContact": 160,
+      "beforeHipY": 524.327091,
+      "afterHipY": 524.5
+    }
+  ],
+  "visualReview": "Pending: browser capture execution was rejected."
+}

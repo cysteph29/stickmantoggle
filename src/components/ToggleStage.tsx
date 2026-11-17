@@ -1,5 +1,5 @@
 import type { Ref } from 'react'
-import { INITIAL_RIG, rigToPose } from '../toggle/pushRig.ts'
+import { rigToPose, type PushRig } from '../toggle/pushRig.ts'
 import { StickFigure } from './StickFigure.tsx'
 import {
   KNOB_RADIUS,
@@ -14,9 +14,8 @@ import {
 } from '../toggle/layout.ts'
 
 type ToggleStageProps = {
-  knobX: number
-  hipX: number
-  hipY: number
+  walkIntro?: boolean
+  rig: PushRig
   showJoints: boolean
   svgRef?: Ref<SVGSVGElement>
   onKnobClick?: () => void
@@ -47,9 +46,8 @@ function trackPath() {
 }
 
 export function ToggleStage({
-  knobX,
-  hipX,
-  hipY,
+  walkIntro = false,
+  rig,
   showJoints,
   svgRef,
   onKnobClick,
@@ -69,17 +67,37 @@ export function ToggleStage({
           <circle
             id="knob"
             className="knob"
-            cx={knobX}
+            cx={rig.knobX}
             cy={KNOB_Y}
             r={KNOB_RADIUS}
             onClick={onKnobClick}
           />
-          <StickFigure
-            pose={rigToPose({ ...INITIAL_RIG, hipX, hipY, knobX })}
-            hipX={hipX}
-            hipY={hipY}
-            showJoints={showJoints}
-          />
+          {walkIntro ? (
+            <>
+              <defs>
+                <clipPath id="walk-reveal" clipPathUnits="userSpaceOnUse">
+                  <path d={trackPath()} />
+                  {/* The original ankle dots overhang the flat floor by 3px.
+                      Retain that stroke overflow once inside the flat span,
+                      so removing the entrance clip cannot reveal extra pixels. */}
+                  <rect x={TRACK_LEFT - TRACK_RADIUS + VISIBLE_CAP_RX}
+                    y={VISIBLE_TRACK_BOTTOM} width={VISIBLE_TRACK_RIGHT - TRACK_LEFT}
+                    height={5} />
+                </clipPath>
+              </defs>
+              <g id="walk-actor" opacity="0">
+                <StickFigure pose={rigToPose(rig)}
+                  hipX={rig.hipX + rig.drive} hipY={rig.hipY} showJoints={showJoints} />
+              </g>
+            </>
+          ) : (
+            <StickFigure
+              pose={rigToPose(rig)}
+              hipX={rig.hipX + rig.drive}
+              hipY={rig.hipY}
+              showJoints={showJoints}
+            />
+          )}
         </g>
       </svg>
     </div>
