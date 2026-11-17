@@ -13,6 +13,7 @@ import {
   INITIAL_POSE,
   KNOB_LEFT_X,
   KNOB_RADIUS,
+  KNOB_REFERENCE_Y,
   KNOB_Y,
   SHIN_LENGTH,
   THIGH_LENGTH,
@@ -76,10 +77,10 @@ function handGrip(upper: number, forearm: number) {
     CHARACTER_HIP_X,
     CHARACTER_HIP_Y,
   )
-  return { x: hand.x - KNOB_LEFT_X, y: hand.y - KNOB_Y }
+  return { x: hand.x - KNOB_LEFT_X, y: hand.y - KNOB_REFERENCE_Y }
 }
 
-/** Wrist positions relative to the knob center, taken from the rest pose. */
+/** Authored offsets from the original center; solveArm applies the current KNOB_Y. */
 const NEAR_GRIP = handGrip(INITIAL_POSE.upperArmLeft, INITIAL_POSE.forearmLeft)
 const FAR_GRIP = handGrip(INITIAL_POSE.upperArmRight, INITIAL_POSE.forearmRight)
 const GRIP_MID_Y = (NEAR_GRIP.y + FAR_GRIP.y) / 2

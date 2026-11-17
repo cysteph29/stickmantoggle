@@ -46,11 +46,17 @@ const STAGE_PAD_Y = (VIEW_H - TRACK_RADIUS * 2) / 2
 
 export const TRACK_CY = STAGE_PAD_Y + TRACK_RADIUS
 
-/** Inner edge of the track floor. Feet and the knob's outer stroke sit here. */
+/** Inner edge of the track floor. Feet sit here. */
 export const GROUND_Y = TRACK_CY + TRACK_RADIUS - TRACK_STROKE / 2
 
-/** Knob center. The bottom of its stroke rests on the floor, leaving a gap above. */
-export const KNOB_Y = GROUND_Y - KNOB_STROKE / 2 - KNOB_RADIUS
+/** Original floor-contact center, retained for the authored stance and grip offsets. */
+export const KNOB_REFERENCE_Y = GROUND_Y - KNOB_STROKE / 2 - KNOB_RADIUS
+
+/** Fixed outline ceiling, independent of the floating thumb position. */
+export const VISIBLE_TRACK_TOP = KNOB_REFERENCE_Y - KNOB_RADIUS - KNOB_STROKE / 2 - 10 - TRACK_STROKE / 2
+
+/** Centered between the existing ceiling and floor: 5 units clear on each side. */
+export const KNOB_Y = (VISIBLE_TRACK_TOP + TRACK_STROKE / 2 + GROUND_Y) / 2
 
 /**
  * Flat floor from each end-cap junction to the circle. The braced figure
@@ -196,7 +202,7 @@ const farHand = handLocal(
 
 /** Hip x that puts a mirrored hand on the knob's left edge. */
 function hipXForHand(hand: { x: number; y: number }, knobX: number) {
-  const dy = CHARACTER_HIP_Y + hand.y - KNOB_Y
+  const dy = CHARACTER_HIP_Y + hand.y - KNOB_REFERENCE_Y
   const reach = Math.sqrt(KNOB_RADIUS * KNOB_RADIUS - dy * dy)
   return knobX - reach + hand.x
 }
