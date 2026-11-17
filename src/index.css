@@ -1,9 +1,11 @@
 :root {
-  --paper: #f3f3f1;
-  --track: #e4e4e0;
-  --knob: #fbfbfa;
-  --ink: #1c1c1c;
-  --line: #c8c8c4;
+  --theme: 0;
+  --paper: color-mix(in srgb, #f3f3f1, #14161b calc(var(--theme) * 100%));
+  --track: color-mix(in srgb, #e4e4e0, #1d2027 calc(var(--theme) * 100%));
+  --knob: color-mix(in srgb, #fbfbfa, #262a32 calc(var(--theme) * 100%));
+  --ink: color-mix(in srgb, #1c1c1c, #ece9e2 calc(var(--theme) * 100%));
+  --figure-ink: color-mix(in srgb, #1c1c1c, #ece9e2 calc(var(--figure-theme, var(--theme)) * 100%));
+  --line: color-mix(in srgb, #c8c8c4, #3a3e47 calc(var(--theme) * 100%));
   color: var(--ink);
   background: var(--paper);
   font-family: ui-sans-serif, system-ui, sans-serif;
@@ -28,20 +30,24 @@ body {
 
 .page {
   height: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr;
+  isolation: isolate;
 }
 
 .debug-panel {
-  justify-self: start;
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  width: fit-content;
+  z-index: 2;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 10px 16px;
-  margin: 14px 0 0 14px;
+  margin: 0;
   padding: 8px 10px;
   border: 1px solid var(--line);
-  background: #fafaf8;
+  background: var(--paper);
   font-size: 12px;
   line-height: 1;
 }
@@ -61,15 +67,15 @@ body {
 .debug-panel button {
   font: inherit;
   color: inherit;
-  background: #fff;
-  border: 1px solid #bdbdb8;
+  background: var(--knob);
+  border: 1px solid var(--line);
   padding: 5px 8px;
   cursor: pointer;
 }
 
 .debug-panel button[aria-pressed='true'] {
   background: var(--ink);
-  color: #fafaf8;
+  color: var(--paper);
   border-color: var(--ink);
 }
 
@@ -79,11 +85,41 @@ body {
   outline-offset: 2px;
 }
 
+.social-links {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 12px;
+}
+
+.social-links a {
+  color: var(--ink);
+  text-decoration: none;
+  padding: 6px 0;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.social-links a:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 4px;
+}
+
 .stage {
+  position: fixed;
+  inset: 0;
   display: grid;
   place-items: center;
   min-height: 0;
-  padding: 8px 24px 28px;
+  padding: 0;
 }
 
 .stage-svg {
@@ -131,4 +167,9 @@ body {
   fill: none;
   stroke: var(--ink);
   stroke-width: 1.75;
+}
+
+/* Separate figure ink keeps the silhouette readable during the theme handoff. */
+#character-root {
+  --ink: var(--figure-ink);
 }

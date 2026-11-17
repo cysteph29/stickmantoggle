@@ -1,7 +1,7 @@
 /**
  * Left-to-right push: settle, failed first push, recoil, wider stance,
  * second push, the break that pitches the figure forward, and the stumble
- * after it. It ends bent over mid-track, where the recovery will start.
+ * after it. The four-step recovery ends in a calm upright rest.
  *
  * Offsets are stage pixels from the rest rig. +x is toward the knob and
  * +y is down. A more negative torso angle leans further into the knob.
@@ -28,18 +28,14 @@ import {
 
 const R = INITIAL_RIG
 
-/**
- * Six quick-then-slowing steps ending bent over, or four long lurching
- * steps ending with hands on knees.
- */
-export type StumbleVariant = 'six' | 'four'
-
 export function createPushTimeline(
   svg: SVGSVGElement,
   onComplete: () => void,
-  variant: StumbleVariant = 'six',
 ) {
   const rig: PushRig = { ...INITIAL_RIG }
+  const appearance = { theme: 0 }
+  let upperBody: ((time: number) => PushRig) | undefined
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   /**
    * Strain tremor on the upper body only. Torso and head each run on their
@@ -78,6 +74,20 @@ export function createPushTimeline(
     return 1
   }
 
+  // Attach after the stumble labels exist; no rig timings change.
+  function withTheme(timeline: gsap.core.Timeline) {
+    if (reducedMotion) {
+      timeline.set(appearance, { theme: 1 }, 'catch')
+    } else {
+      timeline.to(appearance, {
+        theme: 1,
+        duration: 0.45,
+        ease: 'power1.inOut',
+      }, 'break')
+    }
+    return timeline
+  }
+
   const tl = gsap.timeline({
     onUpdate() {
       const now = this.time()
@@ -104,7 +114,15 @@ export function createPushTimeline(
           }
         }
       }
-      applyRig(svg, rig)
+      applyRig(svg, upperBody ? upperBody(now) : rig)
+      document.documentElement.style.setProperty('--theme', String(appearance.theme))
+      // Opposing ink/background fades necessarily cross through equal gray.
+      // Swap the figure's ink at the contrast crossover; keep the background
+      // eased and retain both exact endpoint colors.
+      const figureTheme = !reducedMotion
+        ? Number(appearance.theme >= 0.55)
+        : appearance.theme
+      document.documentElement.style.setProperty('--figure-theme', String(figureTheme))
       for (const entry of undo) rig[entry.key] = entry.value
     },
     onComplete,
@@ -249,9 +267,7 @@ export function createPushTimeline(
   tl.to(rig, { hipX: R.hipX + 70, drive: 0, duration: 0.2, ease: 'power3.out' }, 'break')
   tl.to(rig, { hipY: R.hipY + 12, duration: 0.2, ease: 'power2.in' }, 'break')
   tl.to(rig, { torso: -74, chest: 0, duration: 0.14, ease: 'power3.out' }, 'break')
-  // Whiplash: the head snaps back, then follows the body down.
-  tl.to(rig, { head: 58, duration: 0.08, ease: 'power2.out' }, 'break')
-  tl.to(rig, { head: 16, duration: 0.2, ease: 'sine.inOut' }, 'break+=0.08')
+  // Head follow-through is authored in the upper-body pass below.
   // The front foot shoots out into a desperate lunge.
   tl.to(rig, { frontFootX: R.frontFootX + 110, duration: 0.2, ease: 'power2.out' }, 'break+=0.02')
   tl.to(rig, { frontFootY: R.frontFootY - 18, duration: 0.09, ease: 'power2.out' }, 'break+=0.02')
@@ -272,15 +288,6 @@ export function createPushTimeline(
   tl.addLabel('stumble', 'break+=0.2')
   const at = (s: number) => `stumble+=${s}`
 
-  // Six-step: one decaying glide carries the hip from the break to the catch.
-  // Four-step: the hip is pulsed per footfall inside the four branch below.
-  const four = variant === 'four'
-  if (!four) {
-    tl.to(rig, { hipX: X(340), duration: 2, ease: 'power1.out' }, 'break+=0.14')
-    tl.to(rig, { hipY: R.hipY + 4, duration: 0.18, ease: 'sine.out' }, at(0))
-    tl.to(rig, { torso: -77, duration: 0.12, ease: 'power2.out' }, at(0))
-  }
-
   type Step = {
     foot: 'front' | 'back'
     /** Swing start and landing, from the stumble label. */
@@ -289,49 +296,29 @@ export function createPushTimeline(
     toX: number
     lift: number
     /**
-     * Four-step only: foot height as it passes the standing ankle. The lift
-     * peaks before that, while the foot is still behind the body.
+     * Foot height as it passes the standing ankle. The lift peaks before
+     * that, while the foot is still behind the body.
      */
-    clear?: number
-    /** Hip drop as the landing leg absorbs the weight. */
-    dip: number
-    /** Hip height held until the next landing. */
-    low: number
-    torso: number
-    /** Upward torso bump from the landing. */
-    kick: number
-    head: number
-    bob: number
+    clear: number
     ease: string
   }
-  // Swing time stays near-constant; the hold before each next lift grows
-  // (0, 0, 0.04, 0.11, 0.21, 0.34s), which is what reads as slowing down.
-  // Stride peaks at steps 3 and 4.
-  const sixSteps: Step[] = [
-    { foot: 'back', start: 0, contact: 0.14, toX: X(145), lift: 20, dip: 6, low: 5, torso: -72, kick: 3, head: 16, bob: 4, ease: 'power3.out' },
-    { foot: 'front', start: 0.14, contact: 0.29, toX: X(185), lift: 7, dip: 7, low: 8, torso: -68, kick: 3, head: 13, bob: 3.5, ease: 'power3.out' },
-    { foot: 'back', start: 0.33, contact: 0.5, toX: X(242), lift: 10, dip: 9, low: 10, torso: -62, kick: 4, head: 9, bob: 3, ease: 'power2.out' },
-    { foot: 'front', start: 0.61, contact: 0.8, toX: X(298), lift: 13, dip: 11, low: 11, torso: -55, kick: 5, head: 5, bob: 2.5, ease: 'power1.out' },
-    { foot: 'back', start: 1.01, contact: 1.23, toX: X(345), lift: 14, dip: 12, low: 11, torso: -46, kick: 5, head: 0, bob: 2, ease: 'power1.inOut' },
-    { foot: 'front', start: 1.57, contact: 1.83, toX: X(368), lift: 10, dip: 16, low: 16, torso: -34, kick: 0, head: -8, bob: 1, ease: 'sine.inOut' },
-  ]
   // Long, heavy lurches under the still-surging body. Each lift waits longer
   // after the last landing (0.06, 0.08, 0.18s). The two middle strides are
   // the biggest, so the hip stays deep through them; the last step only drags
   // the front foot into place, leaving early so the gliding hip doesn't pull
   // that planted leg back across the other one.
   const fourSteps: Step[] = [
-    { foot: 'back', start: 0, contact: 0.3, toX: X(184), lift: 22, clear: 12, dip: 14, low: 18, torso: -70, kick: 0, head: 16, bob: 3, ease: 'power2.out' },
-    { foot: 'front', start: 0.36, contact: 0.82, toX: X(276), lift: 18, clear: 10, dip: 20, low: 17, torso: -60, kick: 0, head: 10, bob: 3, ease: 'power1.out' },
+    { foot: 'back', start: 0, contact: 0.3, toX: X(184), lift: 22, clear: 12, ease: 'power2.out' },
+    { foot: 'front', start: 0.36, contact: 0.82, toX: X(276), lift: 18, clear: 10, ease: 'power1.out' },
     // Shorter than the step before it, and short of the old landing, so the
     // catch stands about 40px further from the knob. It lands while the
     // gliding hip is still behind X(300).
-    { foot: 'back', start: 0.9, contact: 1.28, toX: X(300), lift: 18, clear: 10, dip: 20, low: 16, torso: -46, kick: 0, head: 4, bob: 2.5, ease: 'power1.inOut' },
+    { foot: 'back', start: 0.9, contact: 1.28, toX: X(300), lift: 18, clear: 10, ease: 'power1.inOut' },
     // The drag step plants the front foot 44px ahead of that, a shorter
     // stride than the back foot just took.
-    { foot: 'front', start: 1.46, contact: 2.1, toX: X(344), lift: 6, clear: 6, dip: 14, low: 14, torso: -20, kick: 0, head: 2, bob: 1.5, ease: 'sine.inOut' },
+    { foot: 'front', start: 1.46, contact: 2.1, toX: X(344), lift: 6, clear: 6, ease: 'sine.inOut' },
   ]
-  const steps = four ? fourSteps : sixSteps
+  const steps = fourSteps
   // Where each foot sits when the stumble starts; the break has planted both.
   const footAt = { front: R.frontFootX + 110, back: R.backFootX - 40 }
 
@@ -344,60 +331,27 @@ export function createPushTimeline(
     const fromX = footAt[s.foot]
     const standX = footAt[s.foot === 'front' ? 'back' : 'front']
     footAt[s.foot] = s.toX
-    if (s.clear !== undefined) {
-      // Find when the swing foot draws level with the standing ankle, so it
-      // can be low there; a foot still high at that moment folds the leg up
-      // behind the body.
-      const ease = gsap.parseEase(s.ease)
-      const target = Math.min(Math.max((standX - fromX) / (s.toX - fromX), 0), 1)
-      let lo = 0
-      let hi = 1
-      for (let k = 0; k < 30; k++) {
-        const mid = (lo + hi) / 2
-        if (ease(mid) < target) lo = mid
-        else hi = mid
-      }
-      const pass = swing * lo
-      if (i === 0) {
-        // Already up from the kick-off: come straight down to the pass.
-        tl.to(rig, { [y]: ground - s.clear, duration: pass, ease: 'sine.out' }, at(s.start))
-      } else {
-        tl.to(rig, { [y]: ground - s.lift, duration: pass * 0.5, ease: 'sine.out' }, at(s.start))
-        tl.to(rig, { [y]: ground - s.clear, duration: pass * 0.5, ease: 'sine.in' }, at(s.start + pass * 0.5))
-      }
-      tl.to(rig, { [y]: ground, duration: swing - pass, ease: 'sine.in' }, at(s.start + pass))
-    } else if (i === 0) {
-      // The trailing foot is already up from the kick-off.
-      tl.to(rig, { [y]: ground, duration: swing, ease: 'power2.in' }, at(s.start))
+    // Find when the swing foot draws level with the standing ankle, so it
+    // can be low there; a foot still high at that moment folds the leg up
+    // behind the body.
+    const ease = gsap.parseEase(s.ease)
+    const target = Math.min(Math.max((standX - fromX) / (s.toX - fromX), 0), 1)
+    let lo = 0
+    let hi = 1
+    for (let k = 0; k < 30; k++) {
+      const mid = (lo + hi) / 2
+      if (ease(mid) < target) lo = mid
+      else hi = mid
+    }
+    const pass = swing * lo
+    if (i === 0) {
+      // Already up from the kick-off: come straight down to the pass.
+      tl.to(rig, { [y]: ground - s.clear, duration: pass, ease: 'sine.out' }, at(s.start))
     } else {
-      tl.to(rig, { [y]: ground - s.lift, duration: swing * 0.45, ease: 'power2.out' }, at(s.start))
-      tl.to(rig, { [y]: ground, duration: swing * 0.55, ease: 'power2.in' }, at(s.start + swing * 0.45))
+      tl.to(rig, { [y]: ground - s.lift, duration: pass * 0.5, ease: 'sine.out' }, at(s.start))
+      tl.to(rig, { [y]: ground - s.clear, duration: pass * 0.5, ease: 'sine.in' }, at(s.start + pass * 0.5))
     }
-
-    // The four-step body moves on continuous waves, keyed below.
-    if (four) return
-
-    // Landing response: the hip sinks after contact, the torso gets knocked
-    // up a little, and the head bobs a beat late.
-    tl.to(rig, { hipY: R.hipY + s.dip, duration: 0.06, ease: 'power2.out' }, at(s.contact))
-    tl.to(rig, { torso: s.torso + s.kick, duration: 0.08, ease: 'power2.out' }, at(s.contact))
-    const next = steps[i + 1]
-    if (next) {
-      // Stay low between landings so the trailing foot stays in reach.
-      tl.to(rig, { hipY: R.hipY + s.low, duration: next.contact - s.contact - 0.06, ease: 'sine.inOut' }, at(s.contact + 0.06))
-      const gap = next.contact - s.contact
-      // Through a hold the body rolls forward over the planted foot, then
-      // comes up into the next landing.
-      const hold = next.start - s.contact - 0.08
-      if (hold > 0.05) {
-        tl.to(rig, { torso: s.torso - 2, duration: hold, ease: 'sine.inOut' }, at(s.contact + 0.08))
-        tl.to(rig, { torso: next.torso, duration: next.contact - next.start, ease: 'sine.inOut' }, at(next.start))
-      } else {
-        tl.to(rig, { torso: next.torso, duration: gap - 0.08, ease: 'sine.inOut' }, at(s.contact + 0.08))
-      }
-    }
-    tl.to(rig, { head: s.head + s.bob, duration: 0.06, ease: 'power2.out' }, at(s.contact + 0.04))
-    tl.to(rig, { head: s.head, duration: 0.1, ease: 'sine.inOut' }, at(s.contact + 0.1))
+    tl.to(rig, { [y]: ground, duration: swing - pass, ease: 'sine.in' }, at(s.start + pass))
   })
 
   // Arms are keyed in world angles (0 hangs straight down, positive points
@@ -420,284 +374,369 @@ export function createPushTimeline(
       duration,
       ease,
     }, at(s))
-  if (four) {
-    type Ease = string | ((t: number) => number)
-    /** Chains tweens through [time, value, ease] keys, one after another. */
-    const wave = (prop: keyof PushRig, keys: [number, number, Ease?][]) => {
-      let from = 0
-      for (const [time, value, ease = 'sine.inOut'] of keys) {
-        tl.to(rig, { [prop]: value, duration: time - from, ease }, at(from))
-        from = time
-      }
+  type Ease = string | ((t: number) => number)
+  /** Chains tweens through [time, value, ease] keys, one after another. */
+  const wave = (prop: keyof PushRig, keys: [number, number, Ease?][]) => {
+    let from = 0
+    for (const [time, value, ease = 'sine.inOut'] of keys) {
+      tl.to(rig, { [prop]: value, duration: time - from, ease }, at(from))
+      from = time
     }
-    /**
-     * Follows an in-progress tween only as far as `cutTime`, on the same
-     * curve, and stops there. Used so the drag step's climb is unchanged
-     * up to the landing.
-     */
-    const clip = (
-      fromTime: number,
-      toTime: number,
-      fromVal: number,
-      toVal: number,
-      easeName: string,
-      cutTime: number,
-    ): [number, number, (t: number) => number] => {
-      const ease = gsap.parseEase(easeName)
-      const cut = (cutTime - fromTime) / (toTime - fromTime)
-      const portion = ease(cut)
-      return [
-        cutTime,
-        fromVal + (toVal - fromVal) * portion,
-        (t) => ease(t * cut) / portion,
-      ]
-    }
-    // The drag step still climbs toward where the old stand-up was heading.
-    // The keys below are cut at the landing, on that same curve.
-    const oldBack = { x: X(352), y: R.backFootY }
-    const oldFront = { x: X(372), y: R.frontFootY }
-    const oldSpan = Math.hypot(oldFront.x - oldBack.x, oldFront.y - oldBack.y)
-    const rise = Math.sqrt((THIGH_LENGTH + SHIN_LENGTH - 0.05) ** 2 - (oldSpan / 2) ** 2)
-    const stood = {
-      x: (oldBack.x + oldFront.x) / 2 + ((oldFront.y - oldBack.y) / oldSpan) * rise,
-      y: (oldBack.y + oldFront.y) / 2 - ((oldFront.x - oldBack.x) / oldSpan) * rise,
-    }
-    const LAND = 2.1
-    // Final stance, 40px behind the old midpoint, 22px either side of the hip.
-    const back = { x: X(300), y: R.backFootY }
-    const front = { x: X(344), y: R.frontFootY }
+  }
+  /**
+   * Follows an in-progress tween only as far as `cutTime`, on the same
+   * curve, and stops there. Used so the drag step's climb is unchanged
+   * up to the landing.
+   */
+  const clip = (
+    fromTime: number,
+    toTime: number,
+    fromVal: number,
+    toVal: number,
+    easeName: string,
+    cutTime: number,
+  ): [number, number, (t: number) => number] => {
+    const ease = gsap.parseEase(easeName)
+    const cut = (cutTime - fromTime) / (toTime - fromTime)
+    const portion = ease(cut)
+    return [
+      cutTime,
+      fromVal + (toVal - fromVal) * portion,
+      (t) => ease(t * cut) / portion,
+    ]
+  }
+  // The drag step still climbs toward where the old stand-up was heading.
+  // The keys below are cut at the landing, on that same curve.
+  const oldBack = { x: X(352), y: R.backFootY }
+  const oldFront = { x: X(372), y: R.frontFootY }
+  const oldSpan = Math.hypot(oldFront.x - oldBack.x, oldFront.y - oldBack.y)
+  const rise = Math.sqrt((THIGH_LENGTH + SHIN_LENGTH - 0.05) ** 2 - (oldSpan / 2) ** 2)
+  const stood = {
+    x: (oldBack.x + oldFront.x) / 2 + ((oldFront.y - oldBack.y) / oldSpan) * rise,
+    y: (oldBack.y + oldFront.y) / 2 - ((oldFront.x - oldBack.x) / oldSpan) * rise,
+  }
+  const LAND = 2.1
+  // Final stance, 40px behind the old midpoint, 22px either side of the hip.
+  const back = { x: X(300), y: R.backFootY }
+  const front = { x: X(344), y: R.frontFootY }
 
-    // One sway per step: lowest just after each landing as the weight sinks
-    // in, highest mid-hold. Through the drag step the torso only eases up to
-    // -40, so it flows straight into the catch without rising.
-    const DRAG_FROM = 1.48
-    const dragEase = gsap.parseEase('sine.inOut')
-    const dragTorso = (s: number) => -50 + 10 * dragEase((s - DRAG_FROM) / (LAND - DRAG_FROM))
-    const dragChest = (s: number) => -5 + 1 * dragEase((s - DRAG_FROM) / (LAND - DRAG_FROM))
-    wave('torso', [
-      [0.36, -64], [0.62, -50], [0.88, -58], [1.18, -42], [DRAG_FROM, -50],
-      [LAND, dragTorso(LAND)],
-    ])
-    wave('chest', [
-      [0.36, -6], [0.62, -1], [0.88, -6], [1.18, -1], [DRAG_FROM, -5],
-      [LAND, dragChest(LAND)],
-    ])
-    wave('hipY', [
-      [0.36, R.hipY + 16], [0.62, R.hipY + 14], [0.88, R.hipY + 20],
-      [1.18, R.hipY + 16], [1.48, R.hipY + 20],
-      clip(1.48, 2.45, R.hipY + 20, stood.y, 'power1.inOut', LAND),
-    ])
-    // The head trails the torso by a beat: it holds back as the torso sinks,
-    // then drops after it.
-    wave('head', [
-      [0.36, 20], [0.45, 8], [0.62, 6], [0.71, 16],
-      [0.88, 16], [0.97, 4], [1.18, 2], [1.27, 12],
-      [1.48, 12], [1.57, 0],
-      clip(1.57, 2.45, 0, 6, 'power1.inOut', LAND),
-    ])
-    // Halfway between the planted feet. From the end of the drag the hip
-    // eases onto that midpoint.
-    const midX = (back.x + front.x) / 2
-    // HipX keyed to each footfall: speed rises through the swing as the body
-    // falls forward, then drops over ~80ms after contact as the landing leg
-    // brakes. Each pulse is smaller than the last; the drag barely brakes.
-    // Joins the break handoff and the hold midpoint without reversing.
-    const swingX = (k: number) => (t: number) => (1 - k) * t * t + k * t
-    const brakeX = (k: number) => (t: number) =>
-      (1 - k) * (1 - (1 - t) * (1 - t)) + k * t
-    {
-      // break+=0.14 is stumble−0.06; first tween picks up the live hipX.
-      let from = -0.06
-      const keys: [number, number, (t: number) => number][] = [
-        [0.3, X(138), swingX(0.38)],
-        [0.38, X(149), brakeX(0.28)],
-        [0.82, X(226), swingX(0.4)],
-        [0.9, X(239), brakeX(0.5)],
-        [1.28, X(275), swingX(0.36)],
-        [1.36, X(282), brakeX(0.55)],
-        [1.46, X(287), (t) => t],
-        [1.78, X(314), swingX(0.65)],
-        [1.9, midX, brakeX(0.85)],
-      ]
-      for (const [time, value, ease] of keys) {
-        tl.to(
-          rig,
-          { hipX: value, duration: time - from, ease },
-          from < 0 ? 'break+=0.14' : at(from),
-        )
-        from = time
-      }
-    }
-    tl.to(rig, { hipX: midX, duration: 0.6, ease: 'sine.inOut' }, at(1.9))
-
-    // Reach, then a loose hang through the drag. The old keys here lifted
-    // one arm overhead once the torso climbed.
-    arms(0, 0.2, -74, 60, 25, 30, 35, 'power2.out')
-    arms(0.3, 0.08, -70, 48, 35, 22, 45, 'power2.out')
-    arms(0.45, 0.3, -64, 50, 30, -25, 40)
-    arms(0.9, 0.45, -58, -10, 35, 40, 30)
-    // A loose forward hang, keyed against the torso and chest at each
-    // moment. World angle 0 hangs down; these hold the near arm near 16°
-    // and the far arm near 8° while the drag step climbs.
-    const hang = (s: number, duration: number, ease = 'none') => {
-      const end = s + duration
-      tl.to(rig, {
-        upperArmLeft: 16 - dragTorso(end) - dragChest(end),
-        forearmLeft: -12,
-        upperArmRight: 8 - dragTorso(end) - dragChest(end),
-        forearmRight: -12,
-        duration,
-        ease,
-      }, at(s))
-    }
-    hang(1.48, 0.14)
-    hang(1.62, 0.14)
-    hang(1.76, 0.14)
-    hang(1.9, 0.15)
-    hang(2.05, 0.05)
-
-    // Winded catch. Knees soft at 20°, hip centered, hands propping the torso.
-    const kneeBend = 20 * Math.PI / 180
-    const legReach = Math.sqrt(
-      THIGH_LENGTH ** 2 + SHIN_LENGTH ** 2 + 2 * THIGH_LENGTH * SHIN_LENGTH * Math.cos(kneeBend),
-    )
-    const halfSpan = (front.x - back.x) / 2
-    const drop = Math.sqrt(legReach ** 2 - halfSpan ** 2)
-    const catchHipY = front.y - drop
-    const catchTorso = -45
-    const catchChest = -8
-    const catchHead = -12
-    const caught: PushRig = {
-      ...INITIAL_RIG,
-      hipX: midX,
-      hipY: catchHipY,
-      torso: catchTorso,
-      chest: catchChest,
-      head: catchHead,
-      frontFootX: front.x,
-      frontFootY: front.y,
-      backFootX: back.x,
-      backFootY: back.y,
-      grip: 0,
-      drive: 0,
-    }
-    const pose = rigToPose(caught)
-    const kneeAt = (thigh: number) => {
-      const knee = limbEnd(THIGH_LENGTH, thigh)
-      return { x: caught.hipX - knee.x, y: caught.hipY + knee.y }
-    }
-    // Bend -1 puts the elbow forward of the thigh, so the arm props from
-    // the front instead of folding into the leg. The back hand sits higher
-    // on its thigh: 10px above that knee is out of reach at this lean.
-    const wristOnThigh = (knee: { x: number; y: number }, along: number, forward: number) => {
-      const dx = caught.hipX - knee.x
-      const dy = caught.hipY - knee.y
-      const len = Math.hypot(dx, dy)
-      const upX = dx / len
-      const upY = dy / len
-      let sideX = -upY
-      let sideY = upX
-      if (sideX < 0) {
-        sideX = -sideX
-        sideY = -sideY
-      }
-      return {
-        x: knee.x + upX * along + sideX * forward,
-        y: knee.y + upY * along + sideY * forward,
-      }
-    }
-    const nearWrist = wristOnThigh(kneeAt(pose.thighLeft), 8, 6)
-    const farWrist = wristOnThigh(kneeAt(pose.thighRight), 20, 12)
-    const reach = (input: PushRig, target: { x: number; y: number }) => {
-      const sh = rotate(shoulderLocal(input.chest).x, shoulderLocal(input.chest).y, input.torso)
-      const shoulder = { x: input.hipX + input.drive - sh.x, y: input.hipY + sh.y }
-      const local = rotate(
-        -(target.x - shoulder.x),
-        target.y - shoulder.y,
-        -(input.torso + input.chest),
+  // One sway per step: lowest just after each landing as the weight sinks
+  // in, highest mid-hold. Through the drag step the torso only eases up to
+  // -40, so it flows straight into the catch without rising.
+  const DRAG_FROM = 1.48
+  const dragEase = gsap.parseEase('sine.inOut')
+  const dragTorso = (s: number) => -50 + 10 * dragEase((s - DRAG_FROM) / (LAND - DRAG_FROM))
+  const dragChest = (s: number) => -5 + 1 * dragEase((s - DRAG_FROM) / (LAND - DRAG_FROM))
+  wave('torso', [
+    [0.36, -64], [0.62, -50], [0.88, -58], [1.18, -42], [DRAG_FROM, -50],
+    [LAND, dragTorso(LAND)],
+  ])
+  wave('chest', [
+    [0.36, -6], [0.62, -1], [0.88, -6], [1.18, -1], [DRAG_FROM, -5],
+    [LAND, dragChest(LAND)],
+  ])
+  wave('hipY', [
+    [0.36, R.hipY + 16], [0.62, R.hipY + 14], [0.88, R.hipY + 20],
+    [1.18, R.hipY + 16], [1.48, R.hipY + 20],
+    clip(1.48, 2.45, R.hipY + 20, stood.y, 'power1.inOut', LAND),
+  ])
+  // Halfway between the planted feet. From the end of the drag the hip
+  // eases onto that midpoint.
+  const midX = (back.x + front.x) / 2
+  // HipX keyed to each footfall: speed rises through the swing as the body
+  // falls forward, then drops over ~80ms after contact as the landing leg
+  // brakes. Each pulse is smaller than the last; the drag barely brakes.
+  // Joins the break handoff and the hold midpoint without reversing.
+  const swingX = (k: number) => (t: number) => (1 - k) * t * t + k * t
+  const brakeX = (k: number) => (t: number) =>
+    (1 - k) * (1 - (1 - t) * (1 - t)) + k * t
+  {
+    // break+=0.14 is stumble−0.06; first tween picks up the live hipX.
+    let from = -0.06
+    const keys: [number, number, (t: number) => number][] = [
+      [0.3, X(138), swingX(0.38)],
+      [0.38, X(149), brakeX(0.28)],
+      [0.82, X(226), swingX(0.4)],
+      [0.9, X(239), brakeX(0.5)],
+      [1.28, X(275), swingX(0.36)],
+      [1.36, X(282), brakeX(0.55)],
+      [1.46, X(287), (t) => t],
+      [1.78, X(314), swingX(0.65)],
+      [1.9, midX, brakeX(0.85)],
+    ]
+    for (const [time, value, ease] of keys) {
+      tl.to(
+        rig,
+        { hipX: value, duration: time - from, ease },
+        from < 0 ? 'break+=0.14' : at(from),
       )
-      const arm = solveTwoBone(UPPER_ARM_LENGTH, FOREARM_LENGTH, local.x, local.y, -1)
-      return { upper: arm.upper, fore: arm.lower }
+      from = time
     }
-    const near = reach(caught, nearWrist)
-    const far = reach(caught, farWrist)
-    const plantHands = () => {
-      const n = reach(rig, nearWrist)
-      const f = reach(rig, farWrist)
-      rig.upperArmLeft = n.upper
-      rig.forearmLeft = n.fore
-      rig.upperArmRight = f.upper
-      rig.forearmRight = f.fore
-    }
+  }
+  tl.to(rig, { hipX: midX, duration: 0.6, ease: 'sine.inOut' }, at(1.9))
 
-    tl.addLabel('catch', at(LAND))
+  // Reach, then a loose hang through the drag. The old keys here lifted
+  // one arm overhead once the torso climbed.
+  arms(0, 0.2, -74, 60, 25, 30, 35, 'power2.out')
+  arms(0.3, 0.08, -70, 48, 35, 22, 45, 'power2.out')
+  arms(0.45, 0.3, -64, 50, 30, -25, 40)
+  arms(0.9, 0.45, -58, -10, 35, 40, 30)
+  // A loose forward hang, keyed against the torso and chest at each
+  // moment. World angle 0 hangs down; these hold the near arm near 16°
+  // and the far arm near 8° while the drag step climbs.
+  const hang = (s: number, duration: number, ease = 'none') => {
+    const end = s + duration
     tl.to(rig, {
-      hipY: catchHipY,
-      torso: catchTorso,
-      chest: catchChest,
-      head: catchHead,
-      duration: 0.4,
-      ease: 'power2.inOut',
-    }, 'catch')
-    tl.to(rig, {
-      upperArmLeft: near.upper,
-      forearmLeft: near.fore,
-      upperArmRight: far.upper,
-      forearmRight: far.fore,
-      duration: 0.35,
-      ease: 'power2.inOut',
-    }, 'catch')
-    // Hands are down just before the hip finishes centering. Hold them on
-    // the thighs for the rest of the settle.
-    tl.to(rig, { duration: 0.05, onUpdate: plantHands }, 'catch+=0.35')
-    tl.addLabel('settle', 'catch+=0.4')
-    // One breath. In opens the chest a little; out returns to the catch.
-    // Only the spine and head are keyed. The hands are replanted so the
-    // moving shoulders don't drag them off the thighs.
-    tl.to(rig, {
-      torso: catchTorso + 3,
-      chest: catchChest + 4,
-      head: catchHead + 3,
-      duration: 0.6,
-      ease: 'sine.inOut',
-      onUpdate: plantHands,
-    }, 'settle')
-    tl.to(rig, {
-      torso: catchTorso,
-      chest: catchChest,
-      head: catchHead,
-      duration: 0.9,
-      ease: 'sine.inOut',
-      onUpdate: plantHands,
-    }, 'settle+=0.6')
-    return tl
+      upperArmLeft: 16 - dragTorso(end) - dragChest(end),
+      forearmLeft: -12,
+      upperArmRight: 8 - dragTorso(end) - dragChest(end),
+      forearmRight: -12,
+      duration,
+      ease,
+    }, at(s))
+  }
+  hang(1.48, 0.14)
+  hang(1.62, 0.14)
+  hang(1.76, 0.14)
+  hang(1.9, 0.15)
+  hang(2.05, 0.05)
+
+  // Winded catch. Knees soft at 20°, hip centered, hands propping the torso.
+  const kneeBend = 20 * Math.PI / 180
+  const legReach = Math.sqrt(
+    THIGH_LENGTH ** 2 + SHIN_LENGTH ** 2 + 2 * THIGH_LENGTH * SHIN_LENGTH * Math.cos(kneeBend),
+  )
+  const halfSpan = (front.x - back.x) / 2
+  const drop = Math.sqrt(legReach ** 2 - halfSpan ** 2)
+  const catchHipY = front.y - drop
+  const catchTorso = -45
+  const catchChest = -8
+  const catchHead = -12
+  const caught: PushRig = {
+    ...INITIAL_RIG,
+    hipX: midX,
+    hipY: catchHipY,
+    torso: catchTorso,
+    chest: catchChest,
+    head: catchHead,
+    frontFootX: front.x,
+    frontFootY: front.y,
+    backFootX: back.x,
+    backFootY: back.y,
+    grip: 0,
+    drive: 0,
+  }
+  const pose = rigToPose(caught)
+  const kneeAt = (thigh: number) => {
+    const knee = limbEnd(THIGH_LENGTH, thigh)
+    return { x: caught.hipX - knee.x, y: caught.hipY + knee.y }
+  }
+  // Bend -1 puts the elbow forward of the thigh, so the arm props from
+  // the front instead of folding into the leg. The back hand sits higher
+  // on its thigh: 10px above that knee is out of reach at this lean.
+  const wristOnThigh = (knee: { x: number; y: number }, along: number, forward: number) => {
+    const dx = caught.hipX - knee.x
+    const dy = caught.hipY - knee.y
+    const len = Math.hypot(dx, dy)
+    const upX = dx / len
+    const upY = dy / len
+    let sideX = -upY
+    let sideY = upX
+    if (sideX < 0) {
+      sideX = -sideX
+      sideY = -sideY
+    }
+    return {
+      x: knee.x + upX * along + sideX * forward,
+      y: knee.y + upY * along + sideY * forward,
+    }
+  }
+  const nearWrist = wristOnThigh(kneeAt(pose.thighLeft), 8, 6)
+  const farWrist = wristOnThigh(kneeAt(pose.thighRight), 20, 12)
+  const reach = (input: PushRig, target: { x: number; y: number }) => {
+    const sh = rotate(shoulderLocal(input.chest).x, shoulderLocal(input.chest).y, input.torso)
+    const shoulder = { x: input.hipX + input.drive - sh.x, y: input.hipY + sh.y }
+    const local = rotate(
+      -(target.x - shoulder.x),
+      target.y - shoulder.y,
+      -(input.torso + input.chest),
+    )
+    const arm = solveTwoBone(UPPER_ARM_LENGTH, FOREARM_LENGTH, local.x, local.y, -1)
+    return { upper: arm.upper, fore: arm.lower }
+  }
+  const near = reach(caught, nearWrist)
+  const far = reach(caught, farWrist)
+  const plantHands = () => {
+    const n = reach(rig, nearWrist)
+    const f = reach(rig, farWrist)
+    rig.upperArmLeft = n.upper
+    rig.forearmLeft = n.fore
+    rig.upperArmRight = f.upper
+    rig.forearmRight = f.fore
   }
 
-  // Protective reach toward the floor, jolted by each landing.
-  arms(0, 0.12, -77, 55, 20, 35, 30, 'power2.out')
-  arms(0.14, 0.06, -72, 44, 30, 26, 40, 'power2.out')
-  arms(0.2, 0.08, -70, 52, 22, 34, 32)
-  arms(0.29, 0.06, -68, 42, 32, 24, 42, 'power2.out')
-  // Split for balance, roughly against the legs, shrinking.
-  arms(0.36, 0.2, -64, 45, 25, -20, 40)
-  arms(0.64, 0.22, -57, -15, 35, 35, 25)
-  // Out and bent, with small corrections from the lead hand.
-  arms(0.86, 0.3, -52, 70, 60, -40, 50)
-  arms(1.25, 0.16, -46, 95, 45, -36, 50, 'back.out(1.6)')
-  arms(1.45, 0.2, -46, 68, 60, -42, 52)
-  arms(1.66, 0.18, -40, 88, 50, -34, 50, 'back.out(1.4)')
-  // The catch drops them loose toward the knees.
-  arms(1.83, 0.32, -34, 8, 12, -4, 16, 'back.out(1.4)')
+  // Render-only articulation keeps the original chest track as the arm
+  // reference. Counter-rotate free upper arms by the chest difference so
+  // their world angles remain continuous as the shoulders follow through.
+  // Values are relative to break; head keys are torso + chest + head,
+  // before the facing mirror, rather than misleading local head angles.
+  type BodyKey = [time: number, angle: number]
+  const sample = (keys: BodyKey[], time: number) => {
+    for (let i = 1; i < keys.length; i++) {
+      const [end, value] = keys[i]
+      if (time <= end) {
+        const [start, previous] = keys[i - 1]
+        const u = Math.max(0, (time - start) / (end - start))
+        return previous + (value - previous) * fade(u)
+      }
+    }
+    return keys[keys.length - 1][1]
+  }
+  const chestFollow: BodyKey[] = [
+    [0, -6], [0.08, 10], [0.24, -12], [0.46, -3],
+    // First brake at .50: chest folds through the torso's recovery.
+    [0.62, -16], [0.91, 0],
+    // Second contact at 1.02: a shorter, softer compression.
+    [1.16, -10], [1.43, -1], [1.76, -6],
+    // No fourth nod: settle directly into the hands-on-knees catch.
+    [2.1, -4], [2.3, -4],
+  ]
+  const headFollow: BodyKey[] = [
+    [0, -116], [0.08, -116], [0.28, -126], [0.48, -78],
+    [0.67, -88], [0.94, -51],
+    [1.19, -59], [1.46, -43], [1.79, -49],
+    [2.3, -52], [2.7, catchTorso + catchChest + catchHead],
+  ]
+  upperBody = (time) => {
+    const local = time - tl.labels.break
+    if (local < 0 || local > 2.7) return rig
+    // Use the authored chest during the catch so plantHands solves from
+    // the rendered shoulder; both chest tracks meet at -4° at this handoff.
+    const chest = local >= 2.3 ? rig.chest : sample(chestFollow, local)
+    const armCorrection = rig.chest - chest
+    return {
+      ...rig,
+      chest,
+      head: sample(headFollow, local) - rig.torso - chest,
+      upperArmLeft: rig.upperArmLeft + armCorrection,
+      upperArmRight: rig.upperArmRight + armCorrection,
+    }
+  }
 
-  // Catch, then one small "almost goes again" wobble before the hold.
-  tl.addLabel('catch', at(1.83))
-  tl.addLabel('settle', at(1.97))
-  tl.to(rig, { torso: -42, hipY: R.hipY + 18, duration: 0.2, ease: 'sine.inOut' }, 'settle')
-  tl.to(rig, { hipX: X(343), duration: 0.18, ease: 'sine.out' }, 'settle+=0.18')
-  tl.to(rig, { frontFootY: R.frontFootY - 4, duration: 0.08, ease: 'power2.out' }, 'settle+=0.14')
-  tl.to(rig, { frontFootY: R.frontFootY, duration: 0.1, ease: 'power2.in' }, 'settle+=0.22')
-  tl.to(rig, { torso: -36, hipY: R.hipY + 14, head: -14, duration: 0.32, ease: 'sine.inOut' }, 'settle+=0.2')
-  tl.to(rig, { hipX: X(340), duration: 0.24, ease: 'sine.inOut' }, 'settle+=0.36')
+  tl.addLabel('catch', at(LAND))
+  tl.to(rig, {
+    hipY: catchHipY,
+    torso: catchTorso,
+    chest: catchChest,
+    head: catchHead,
+    duration: 0.4,
+    ease: 'power2.inOut',
+  }, 'catch')
+  tl.to(rig, {
+    upperArmLeft: near.upper,
+    forearmLeft: near.fore,
+    upperArmRight: far.upper,
+    forearmRight: far.fore,
+    duration: 0.35,
+    ease: 'power2.inOut',
+  }, 'catch')
+  // Hands are down just before the hip finishes centering. Hold them on
+  // the thighs for the rest of the settle.
+  tl.to(rig, { duration: 0.05, onUpdate: plantHands }, 'catch+=0.35')
+  tl.addLabel('settle', 'catch+=0.4')
+  // One breath. In opens the chest a little; out returns to the catch.
+  // Only the spine and head are keyed. The hands are replanted so the
+  // moving shoulders don't drag them off the thighs.
+  tl.to(rig, {
+    torso: catchTorso + 3,
+    chest: catchChest + 4,
+    head: catchHead + 3,
+    duration: 0.6,
+    ease: 'sine.inOut',
+    onUpdate: plantHands,
+  }, 'settle')
+  tl.to(rig, {
+    torso: catchTorso,
+    chest: catchChest,
+    head: catchHead,
+    duration: 0.9,
+    ease: 'sine.inOut',
+    onUpdate: plantHands,
+  }, 'settle+=0.6')
 
-  return tl
+  // Finish the exhale before rising. Derive hip height from a soft 12°
+  // knee bend and the planted split stance, rather than locking the legs.
+  const restBend = 12 * Math.PI / 180
+  const restReachSquared = THIGH_LENGTH ** 2 + SHIN_LENGTH ** 2
+    + 2 * THIGH_LENGTH * SHIN_LENGTH * Math.cos(restBend)
+  const restHipY = front.y - Math.sqrt(restReachSquared - halfSpan ** 2)
+  tl.addLabel('stand', 'settle+=1.5')
+  tl.to(rig, {
+    hipX: midX,
+    hipY: restHipY,
+    torso: 0,
+    chest: 0,
+    duration: 1.2,
+    ease: 'sine.inOut',
+  }, 'stand')
+  // Release the thighs into a loose forward hang, with slightly different
+  // arm angles so the silhouettes remain separate from the upright spine.
+  tl.to(rig, {
+    upperArmLeft: 14,
+    forearmLeft: -8,
+    upperArmRight: 7,
+    forearmRight: -4,
+    duration: 1.3,
+    ease: 'sine.inOut',
+  }, 'stand')
+  tl.to(rig, {
+    head: 0,
+    duration: 1.2,
+    ease: 'sine.inOut',
+  }, 'stand+=0.15')
+  tl.addLabel('rest', 'stand+=1.35')
+
+  // Once upright, load the back foot and take one small inward step.
+  // Keeping that foot planted moves the final rest away from the knob.
+  const restSpan = 14
+  const supportHipX = back.x + 12
+  const narrowHipX = back.x + restSpan / 2
+  const narrowHipY = front.y - Math.sqrt(restReachSquared - (restSpan / 2) ** 2)
+  tl.addLabel('closeStance', 'rest')
+  tl.to(rig, {
+    hipX: supportHipX,
+    // Keep the still-planted front leg soft during the weight transfer.
+    hipY: front.y - Math.sqrt(restReachSquared - (front.x - supportHipX) ** 2),
+    duration: 0.12,
+    ease: 'sine.inOut',
+  }, 'closeStance')
+  tl.to(rig, {
+    frontFootX: back.x + restSpan,
+    duration: 0.26,
+    ease: 'sine.inOut',
+  }, 'closeStance+=0.12')
+  tl.to(rig, {
+    frontFootY: front.y - 4,
+    duration: 0.13,
+    ease: 'sine.out',
+  }, 'closeStance+=0.12')
+  tl.to(rig, {
+    frontFootY: front.y,
+    duration: 0.13,
+    ease: 'sine.inOut',
+  }, 'closeStance+=0.25')
+  tl.to(rig, {
+    hipX: narrowHipX + 2,
+    hipY: narrowHipY + 0.8,
+    duration: 0.26,
+    ease: 'sine.inOut',
+  }, 'closeStance+=0.12')
+  tl.to(rig, {
+    hipX: narrowHipX,
+    hipY: narrowHipY,
+    duration: 0.1,
+    ease: 'sine.inOut',
+  }, 'closeStance+=0.38')
+  tl.addLabel('rest', 'closeStance+=0.48')
+  return withTheme(tl)
 }

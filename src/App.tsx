@@ -8,22 +8,16 @@ import {
 } from './toggle/layout.ts'
 import type { KnobSide } from './toggle/layout.ts'
 import { INITIAL_RIG, applyRig } from './toggle/pushRig.ts'
-import {
-  createPushTimeline,
-  type StumbleVariant,
-} from './toggle/pushTimeline.ts'
+import { createPushTimeline } from './toggle/pushTimeline.ts'
 
 const INITIAL_KNOB_SIDE: KnobSide = 'left'
 
-/** Four steps is the default. `?stumble=6` plays the six-step variant. */
-const STUMBLE: StumbleVariant =
-  new URLSearchParams(window.location.search).get('stumble') === '6'
-    ? 'six'
-    : 'four'
+/** Debug controls stay off unless the page is opened with `?debug`. */
+const SHOW_DEBUG = new URLSearchParams(window.location.search).has('debug')
 
 export default function App() {
   const [knobSide, setKnobSide] = useState<KnobSide>(INITIAL_KNOB_SIDE)
-  const [showJoints, setShowJoints] = useState(true)
+  const [showJoints, setShowJoints] = useState(SHOW_DEBUG)
   const [hipX, setHipX] = useState(CHARACTER_HIP_X)
   const [hipY, setHipY] = useState(CHARACTER_HIP_Y)
   const svgRef = useRef<SVGSVGElement>(null)
@@ -35,6 +29,8 @@ export default function App() {
   function restoreRestPose(side: KnobSide) {
     timelineRef.current?.kill()
     timelineRef.current = null
+    document.documentElement.style.setProperty('--theme', side === 'right' ? '1' : '0')
+    document.documentElement.style.setProperty('--figure-theme', side === 'right' ? '1' : '0')
     if (svgRef.current) {
       applyRig(svgRef.current, { ...INITIAL_RIG, knobX: knobCenterX(side) })
     }
@@ -45,7 +41,6 @@ export default function App() {
     timelineRef.current = createPushTimeline(
       svgRef.current,
       () => setKnobSide('right'),
-      STUMBLE,
     )
   }
 
@@ -63,13 +58,15 @@ export default function App() {
 
   return (
     <main className="page">
-      <DebugPanel
-        knobSide={knobSide}
-        showJoints={showJoints}
-        onKnobSide={chooseKnobSide}
-        onShowJoints={setShowJoints}
-        onReset={reset}
-      />
+      {SHOW_DEBUG && (
+        <DebugPanel
+          knobSide={knobSide}
+          showJoints={showJoints}
+          onKnobSide={chooseKnobSide}
+          onShowJoints={setShowJoints}
+          onReset={reset}
+        />
+      )}
       <ToggleStage
         knobX={knobCenterX(knobSide)}
         hipX={hipX}
@@ -78,6 +75,11 @@ export default function App() {
         svgRef={svgRef}
         onKnobClick={push}
       />
+      <footer className="social-links" aria-label="Social links">
+        <a href="https://github.com/cysteph29" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/cyril-stephen" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://x.com/cyril_design" target="_blank" rel="noopener noreferrer">X</a>
+      </footer>
     </main>
   )
 }

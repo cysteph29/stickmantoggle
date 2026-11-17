@@ -7,7 +7,7 @@ const svg = {
     return { setAttribute(k: string, v: string) { (attrs[id] ??= {})[k] = v } }
   },
 } as unknown as SVGSVGElement
-const tl = createPushTimeline(svg, () => {}, 'four')
+const tl = createPushTimeline(svg, () => {})
 tl.pause()
 const rot = (id: string) => Number(/rotate\(([-\d.e]+)\)/.exec(attrs[id]?.transform ?? 'rotate(0)')![1])
 const f = (n: number) => n.toFixed(1).padStart(6)
