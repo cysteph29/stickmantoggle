@@ -11,8 +11,13 @@ import { createPushTimeline } from './toggle/pushTimeline.ts'
 import { createWalkPushTimeline } from './toggle/walkPush.ts'
 import { WALK_REST } from './toggle/walkComposition.ts'
 import { createWalkIntro, prepareWalk } from './toggle/walkIntro.ts'
+import { PortfolioOutro, PortfolioType } from './components/PortfolioOutro.tsx'
 
 const WALK_INTRO = new URLSearchParams(window.location.search).get('intro') === 'walk'
+const PORTFOLIO_OUTRO = WALK_INTRO
+  && new URLSearchParams(window.location.search).get('outro') === 'portfolio'
+const PORTFOLIO_PREVIEW = PORTFOLIO_OUTRO
+  && new URLSearchParams(window.location.search).get('preview') === 'outro'
 
 const INITIAL_KNOB_SIDE: KnobSide = 'left'
 
@@ -20,6 +25,11 @@ const INITIAL_KNOB_SIDE: KnobSide = 'left'
 const SHOW_DEBUG = new URLSearchParams(window.location.search).has('debug')
 
 export default function App() {
+  return PORTFOLIO_PREVIEW ? <PortfolioOutro /> : <TogglePlayground />
+}
+
+function TogglePlayground() {
+  const [outroVisible, setOutroVisible] = useState(false)
   const [knobSide, setKnobSide] = useState<KnobSide>(INITIAL_KNOB_SIDE)
   const [showJoints, setShowJoints] = useState(SHOW_DEBUG)
   const [renderRig, setRenderRig] = useState<PushRig>(WALK_INTRO ? WALK_REST : INITIAL_RIG)
@@ -30,6 +40,7 @@ export default function App() {
 
   /** Stops any push and writes the rest pose back over the animated DOM. */
   function restoreRestPose(side: KnobSide) {
+    setOutroVisible(false)
     timelineRef.current?.kill()
     timelineRef.current = null
     document.documentElement.style.setProperty('--theme', side === 'right' ? '1' : '0')
@@ -55,6 +66,9 @@ export default function App() {
         setKnobSide('right')
         timelineRef.current = null
       })
+      if (PORTFOLIO_OUTRO) {
+        timelineRef.current.call(() => setOutroVisible(true), [], 'closeStance')
+      }
     }
     if (WALK_INTRO && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       timelineRef.current = createWalkIntro(svg, startPush)
@@ -74,7 +88,8 @@ export default function App() {
   }
 
   return (
-    <main className="page">
+    <main className={`page${PORTFOLIO_OUTRO ? ' portfolio-reveal' : ''}${outroVisible ? ' is-revealed' : ''}`}>
+      {PORTFOLIO_OUTRO && <PortfolioType />}
       {SHOW_DEBUG && (
         <DebugPanel
           knobSide={knobSide}

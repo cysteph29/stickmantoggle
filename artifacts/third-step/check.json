@@ -1,0 +1,21 @@
+{
+  "start": 4.65,
+  "maxError": 5.684341886080802e-14,
+  "maxReach": 84.4191693285775,
+  "minKnee": 52.2000229687956,
+  "maxJointDelta": 0.5990877920988282,
+  "otherChanges": 0,
+  "samples": 601,
+  "sampleIntervalSeconds": 0.001,
+  "normalSpeedPlayback": {
+    "before": {
+      "timeScale": 1,
+      "endTime": 7.467
+    },
+    "after": {
+      "timeScale": 1,
+      "endTime": 6.449
+    }
+  },
+  "visualReview": "Closely spaced rendered frames inspected. Direct observation of normal-speed playback unavailable because computer-use service failed to start."
+}

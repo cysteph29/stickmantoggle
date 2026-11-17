@@ -14,9 +14,20 @@ export function alternatePushRig(rig: PushRig, time: number): PushRig {
   // A constant translation preserves every stride and planted support foot.
   // The alternate keeps its own recovery path and resting position.
   const bodyOffset = WALK_OFFSET_X
+  // Flatten the rise between landings two and three, leaving a smaller
+  // compression into the third plant. Lowering the high point adds leg
+  // reach margin instead of pulling either planted foot beyond its reach.
+  // C2 blends preserve landing two and rejoin before the drag starts.
+  const stepTime = time - (release + 0.2)
+  const hipSettle = stepTime > 0.9 && stepTime < 1.46
+    ? 1.5 * (stepTime < 1.18
+      ? 1 - remaining(stepTime, 0.9, 0.28)
+      : remaining(stepTime, 1.18, 0.28))
+    : 0
   return {
     ...rig,
     hipX: rig.hipX + bodyOffset,
+    hipY: rig.hipY + hipSettle,
     frontFootX: rig.frontFootX + bodyOffset,
     backFootX: rig.backFootX + bodyOffset,
     knobX: rig.knobX + WALK_OFFSET_X * remaining(time, release, 0.3),

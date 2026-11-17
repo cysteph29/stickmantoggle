@@ -14,6 +14,7 @@ import {
 } from '../toggle/layout.ts'
 
 type ToggleStageProps = {
+  viewBox?: string
   walkIntro?: boolean
   rig: PushRig
   showJoints: boolean
@@ -46,6 +47,7 @@ function trackPath() {
 }
 
 export function ToggleStage({
+  viewBox = `0 0 ${VIEW_W} ${VIEW_H}`,
   walkIntro = false,
   rig,
   showJoints,
@@ -58,7 +60,7 @@ export function ToggleStage({
         ref={svgRef}
         id="toggle-stage"
         className="stage-svg"
-        viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
+        viewBox={viewBox}
         role="img"
         aria-label="Large horizontal toggle. A stick figure stands to the left of the knob, facing it."
       >
