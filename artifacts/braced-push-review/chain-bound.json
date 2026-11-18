@@ -1,0 +1,26 @@
+{
+  "first_impossible": {
+    "time": 0.476,
+    "hip_to_contact": 108.61716205237632,
+    "maximum_chain": 108.59457675627489,
+    "shortfall": 0.022585296101425456,
+    "upper_length": 28.749419487348906,
+    "fore_length": 27.845157268925984
+  },
+  "last_impossible": {
+    "time": 0.597,
+    "hip_to_contact": 110.0958168722557,
+    "maximum_chain": 110.07284292028439,
+    "shortfall": 0.022973951971302142,
+    "upper_length": 21.523872331841773,
+    "fore_length": 36.54897058844262
+  },
+  "peak": {
+    "time": 0.522,
+    "hip_to_contact": 109.28378648517528,
+    "maximum_chain": 104.3684052877297,
+    "shortfall": 4.915381197445587,
+    "upper_length": 21.76591859402438,
+    "fore_length": 30.602486693705313
+  }
+}

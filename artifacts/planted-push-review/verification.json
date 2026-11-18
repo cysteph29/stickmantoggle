@@ -1,0 +1,15 @@
+{
+  "rendered_samples": 630,
+  "numerical_samples": 1259,
+  "first_effort_max_wrist_drift_stage_units": 1.2586036646942222e-12,
+  "first_effort_lengths": "constant at approved initial lengths",
+  "first_effort_min_head_to_arm_stroke_gap": 1.021920237945146,
+  "first_effort_min_head_to_elbow_dot_gap": 0.3200709777865569,
+  "modified_interval_max_hand_distance_from_knob_outline": 0.26663498318964685,
+  "protected_svg_attributes": "exact match throughout",
+  "theme": "exact match throughout",
+  "stronger_push_and_later_svg": "exact match from 3.25s",
+  "authored_rig_restored_at": 3.2,
+  "initial_frame_pixels_identical": true,
+  "playback_reviewed": false
+}

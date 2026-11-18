@@ -1,0 +1,17 @@
+{
+  "src/App.tsx": "202c498e16cd303b8ed0c8b3ed0c000364548927791597cd78f386abab759717",
+  "src/main.tsx": "6e9e5807fcbd48b75a96db5cbef36c996262196be42e6d4760dc86babbe61ad2",
+  "src/index.css": "7bc18f05632f6acfa41fbf4480dc9fda8416a60ef35b5c84fa686310ff01b637",
+  "src/toggle/walkComposition.ts": "e1c6d16341b570d7bc33c67a2e8ec16fe2fa51bd595949c648872e5b9f051b39",
+  "src/toggle/walkPush.ts": "9ce9ae46dbee81a22d4331ffeb36a0bde33af6538aeaa4eec9a8802b46d6964d",
+  "src/toggle/pushTimeline.ts": "354318f5439febfb0cf7153a2e4aecc6c65397e4970ab660c5e8a838a2bd708b",
+  "src/toggle/pushRig.ts": "05961dda49f185a613dd7fe871f29315ea72cb27575805d9451748aee190140d",
+  "src/toggle/walkContactArms.ts": "6b9df0feae795d50dbd69a8e18c92e972b4eca8e32039699238f5a37f59e691b",
+  "src/toggle/walkDescentArms.ts": "50da348fcf36b552344c948ec4fb82c16459d8a268e72a9a7dfb571a06f6dc46",
+  "src/toggle/layout.ts": "8d990686ac823891118304409cd5b964789b465a0108b5f43bb5d53bdda8af20",
+  "src/toggle/walkIntro.ts": "272f1aa08dd0d76ebf7529a6a85073db722b53eabe49a99b354e2b6b4c04f3d8",
+  "src/components/StickFigure.tsx": "8b437866d879d0cbdfa81b6268eb082c7cccff55f43da4ca0ea5af939762a28a",
+  "src/components/PortfolioOutro.tsx": "dc96cb47ef7f657e0b4af5afe8d52c35e16def96a54ddcfd869f8d36b39ef890",
+  "src/components/DebugPanel.tsx": "506249bab2e14e0b49ebf15c5227a03c3fb90e63194186d791b201ddb80f45c7",
+  "src/components/ToggleStage.tsx": "d473c3ee5eba18ea8a498d84fa3f68afc77ef3dbc647bfdd78588def108d64ab"
+}

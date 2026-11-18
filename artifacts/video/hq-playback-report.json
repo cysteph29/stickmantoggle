@@ -1,0 +1,24 @@
+[
+  {
+    "name": "walk-intro-light-to-dark-1080p60-hq",
+    "duration": 13.683333,
+    "currentTime": 13.683333,
+    "ended": true,
+    "width": 1920,
+    "height": 1080,
+    "totalVideoFrames": 828,
+    "droppedVideoFrames": 1,
+    "events": []
+  },
+  {
+    "name": "walk-intro-light-to-dark-4k60-hq",
+    "duration": 13.683333,
+    "currentTime": 13.683333,
+    "ended": true,
+    "width": 3840,
+    "height": 2160,
+    "totalVideoFrames": 827,
+    "droppedVideoFrames": 1,
+    "events": []
+  }
+]

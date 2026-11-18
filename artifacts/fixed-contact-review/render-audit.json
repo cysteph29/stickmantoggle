@@ -1,0 +1,1526 @@
+{
+  "status": "REJECTED \u2014 diagnostic only; production unchanged",
+  "max_reachable_hand_error": 0.008006772318464464,
+  "first_reachable_near_head_collision": {
+    "t": 0.6166666666666667,
+    "side": "left",
+    "unreachable_deficit": 0,
+    "hand_target_gap": 3.906407391258223e-06,
+    "head_clearance": -7.928004176818149,
+    "elbow_behind_hand": true
+  },
+  "low_hold": {
+    "t": 0.95,
+    "side": "left",
+    "unreachable_deficit": 0,
+    "hand_target_gap": 1.2405026088112576e-06,
+    "head_clearance": -16.09501736522609,
+    "elbow_behind_hand": true
+  },
+  "samples": [
+    {
+      "t": 1e-06,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.8858111859321443e-06,
+      "head_clearance": 16.03959311680714,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1e-06,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.73007836449312e-06,
+      "head_clearance": 21.960115995082,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.016666666666666666,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 4.758879787960263e-06,
+      "head_clearance": 16.04518036328099,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.016666666666666666,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.9990433475109707e-06,
+      "head_clearance": 21.960093295386336,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.03333333333333333,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 0.0012813583500735572,
+      "head_clearance": 16.06326599227299,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.03333333333333333,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 4.294125777920421e-06,
+      "head_clearance": 21.959934262524605,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.05,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 0.008006772318464464,
+      "head_clearance": 16.056322407180396,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.05,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.3710714196051477e-06,
+      "head_clearance": 21.959500975654656,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.06666666666666667,
+      "side": "left",
+      "unreachable_deficit": 0.0110840307618858,
+      "hand_target_gap": 0.021084483934152333,
+      "head_clearance": 16.042817247219368,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.06666666666666667,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.854640739610912e-06,
+      "head_clearance": 21.95865055043963,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.08333333333333333,
+      "side": "left",
+      "unreachable_deficit": 0.032597986235661125,
+      "hand_target_gap": 0.042598750486644264,
+      "head_clearance": 16.020528681348004,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.08333333333333333,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.244687575716717e-06,
+      "head_clearance": 21.957229210960435,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.1,
+      "side": "left",
+      "unreachable_deficit": 0.0645448988180668,
+      "hand_target_gap": 0.07454414060003832,
+      "head_clearance": 15.987278634843086,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.1,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 8.378086670628485e-07,
+      "head_clearance": 21.955064214624237,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.11666666666666667,
+      "side": "left",
+      "unreachable_deficit": 0.10885680508670958,
+      "hand_target_gap": 0.11885516753158872,
+      "head_clearance": 15.940861775283281,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.11666666666666667,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.6390834616452332e-06,
+      "head_clearance": 21.951953436671282,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.13333333333333333,
+      "side": "left",
+      "unreachable_deficit": 0.16729686462992888,
+      "hand_target_gap": 0.17729725852161135,
+      "head_clearance": 15.879083153467185,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.13333333333333333,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.1826648779950453e-06,
+      "head_clearance": 21.94765258454172,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.15,
+      "side": "left",
+      "unreachable_deficit": 0.24144776426307502,
+      "hand_target_gap": 0.2514475014221702,
+      "head_clearance": 15.799713180398548,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.15,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.47493697387781e-06,
+      "head_clearance": 21.941860050479406,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.16666666666666666,
+      "side": "left",
+      "unreachable_deficit": 0.3325127644383663,
+      "hand_target_gap": 0.3425119596616557,
+      "head_clearance": 15.700567276650979,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.16666666666666666,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 8.699136863948371e-07,
+      "head_clearance": 21.934199627298284,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.18333333333333332,
+      "side": "left",
+      "unreachable_deficit": 0.4412918978138727,
+      "hand_target_gap": 0.451290096657634,
+      "head_clearance": 15.579434038475114,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.18333333333333332,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 6.068983234274853e-07,
+      "head_clearance": 21.924200820124092,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.2,
+      "side": "left",
+      "unreachable_deficit": 0.5679096696170554,
+      "hand_target_gap": 0.5779092640983164,
+      "head_clearance": 15.43413166143776,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.2,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 6.229596331192286e-07,
+      "head_clearance": 21.91127676388927,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.21666666666666667,
+      "side": "left",
+      "unreachable_deficit": 0.7114894693110934,
+      "hand_target_gap": 0.7214907228589296,
+      "head_clearance": 15.262506335365984,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.21666666666666667,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.513985077508819e-06,
+      "head_clearance": 21.894700151887882,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.23333333333333334,
+      "side": "left",
+      "unreachable_deficit": 0.8640990285504735,
+      "hand_target_gap": 0.8741008941303479,
+      "head_clearance": 15.069867678007157,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.23333333333333334,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.5296849207182624e-06,
+      "head_clearance": 21.874393172770723,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.25,
+      "side": "left",
+      "unreachable_deficit": 0.9913034240962979,
+      "hand_target_gap": 1.0013027031799826,
+      "head_clearance": 14.89851150822544,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.25,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 4.143779084814334e-06,
+      "head_clearance": 21.854809061148273,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.26666666666666666,
+      "side": "left",
+      "unreachable_deficit": 1.0918575486745468,
+      "hand_target_gap": 1.1018585934936003,
+      "head_clearance": 14.75363402507395,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.26666666666666666,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.1592188983878646e-06,
+      "head_clearance": 21.837125165933024,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.2833333333333333,
+      "side": "left",
+      "unreachable_deficit": 1.1701824508096337,
+      "hand_target_gap": 1.18018208961329,
+      "head_clearance": 14.632984554068337,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.2833333333333333,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.874456247420685e-06,
+      "head_clearance": 21.821606207028303,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.3,
+      "side": "left",
+      "unreachable_deficit": 1.2302652394893379,
+      "hand_target_gap": 1.2402658118630823,
+      "head_clearance": 14.534310772822245,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.3,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.2686175804009418e-06,
+      "head_clearance": 21.808375738124838,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.31666666666666665,
+      "side": "left",
+      "unreachable_deficit": 1.2755884061288008,
+      "hand_target_gap": 1.2855904131484182,
+      "head_clearance": 14.455371418677714,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.31666666666666665,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 5.517745271982509e-07,
+      "head_clearance": 21.7974412561249,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.3333333333333333,
+      "side": "left",
+      "unreachable_deficit": 1.3090375367356373,
+      "hand_target_gap": 1.319037933593166,
+      "head_clearance": 14.393957902397212,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.3333333333333333,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.407760123926342e-06,
+      "head_clearance": 21.78871587322726,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.35,
+      "side": "left",
+      "unreachable_deficit": 1.333086211450457,
+      "hand_target_gap": 1.3430857799096596,
+      "head_clearance": 14.347825623132728,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.35,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.4693535309715322e-06,
+      "head_clearance": 21.782038122021753,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.36666666666666664,
+      "side": "left",
+      "unreachable_deficit": 1.3497239221497779,
+      "hand_target_gap": 1.3597239385889301,
+      "head_clearance": 14.314792264660817,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.36666666666666664,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.346271708802594e-06,
+      "head_clearance": 21.77718957180106,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.38333333333333336,
+      "side": "left",
+      "unreachable_deficit": 1.360595633276965,
+      "hand_target_gap": 1.3705947047128995,
+      "head_clearance": 14.29264760160688,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.38333333333333336,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 4.782140891271016e-06,
+      "head_clearance": 21.773909685689908,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.4,
+      "side": "left",
+      "unreachable_deficit": 1.3670589011840946,
+      "hand_target_gap": 1.3770569583091814,
+      "head_clearance": 14.279233493213198,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.4,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.0663397657460747e-06,
+      "head_clearance": 21.77190858951772,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.4166666666666667,
+      "side": "left",
+      "unreachable_deficit": 1.3703568822664245,
+      "hand_target_gap": 1.3803563885599475,
+      "head_clearance": 14.272334663967328,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.4166666666666667,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.6163487921542736e-06,
+      "head_clearance": 21.770877558182804,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.43333333333333335,
+      "side": "left",
+      "unreachable_deficit": 1.3715616377424418,
+      "hand_target_gap": 1.3815629451207716,
+      "head_clearance": 14.269800270107574,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.43333333333333335,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.7911142278520305e-06,
+      "head_clearance": 21.770497148844115,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.45,
+      "side": "left",
+      "unreachable_deficit": 1.371734201663525,
+      "hand_target_gap": 1.3817353316051955,
+      "head_clearance": 14.269433696886544,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.45,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.8387241806769124e-06,
+      "head_clearance": 21.770442763343425,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.4666666666666667,
+      "side": "left",
+      "unreachable_deficit": 6.164456028399776,
+      "hand_target_gap": 6.17445586143543,
+      "head_clearance": 12.004525491980935,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.4666666666666667,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.665048933550415e-06,
+      "head_clearance": 21.708601367783203,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.48333333333333334,
+      "side": "left",
+      "unreachable_deficit": 8.43893811933425,
+      "hand_target_gap": 8.448938984064547,
+      "head_clearance": 9.69513897702404,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.48333333333333334,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.187355372192e-06,
+      "head_clearance": 21.646544974982575,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.5,
+      "side": "left",
+      "unreachable_deficit": 9.21126190647065,
+      "hand_target_gap": 9.22126258283513,
+      "head_clearance": 7.502558335245745,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.5,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.420020729057079e-06,
+      "head_clearance": 21.5857116453747,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.5166666666666667,
+      "side": "left",
+      "unreachable_deficit": 8.877722031936429,
+      "hand_target_gap": 8.887721764615673,
+      "head_clearance": 5.313682032599793,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.5166666666666667,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.4943811590973763e-06,
+      "head_clearance": 21.527203779882775,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.5333333333333333,
+      "side": "left",
+      "unreachable_deficit": 7.745517656932403,
+      "hand_target_gap": 7.755517188860326,
+      "head_clearance": 3.187106296060122,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.5333333333333333,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 5.942301351254823e-07,
+      "head_clearance": 21.47183631738315,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.55,
+      "side": "left",
+      "unreachable_deficit": 6.121455576667593,
+      "hand_target_gap": 6.131455644763035,
+      "head_clearance": 1.1700380317014485,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.55,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.1671692002636516e-06,
+      "head_clearance": 21.420181078218057,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.5666666666666667,
+      "side": "left",
+      "unreachable_deficit": 4.2813171775505126,
+      "hand_target_gap": 4.2913180874955,
+      "head_clearance": -0.7037960198180286,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.5666666666666667,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.8121734971999075e-06,
+      "head_clearance": 20.192753512869388,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.5833333333333334,
+      "side": "left",
+      "unreachable_deficit": 2.426554968656511,
+      "hand_target_gap": 2.436556927755596,
+      "head_clearance": -2.413828614977408,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.5833333333333334,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.618111212191883e-06,
+      "head_clearance": 17.803820326835996,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.6,
+      "side": "left",
+      "unreachable_deficit": 0.6745355619631113,
+      "hand_target_gap": 0.6845348833054379,
+      "head_clearance": -3.9507241143718907,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.6,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 8.149021748272457e-07,
+      "head_clearance": 15.71483624607734,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.6166666666666667,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.906407391258223e-06,
+      "head_clearance": -7.928004176818149,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.6166666666666667,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.936242884602238e-06,
+      "head_clearance": 13.900722086115074,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.6333333333333333,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.2411245846213044e-06,
+      "head_clearance": -10.846286235216986,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.6333333333333333,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 6.838391361367597e-07,
+      "head_clearance": 12.337028418827181,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.65,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 5.04535727620203e-06,
+      "head_clearance": -12.991585910170203,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.65,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.7154216360684557e-06,
+      "head_clearance": 11.00012871546862,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.6666666666666666,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.1741772276655163e-06,
+      "head_clearance": -14.6104156192835,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.6666666666666666,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.5733609805909246e-06,
+      "head_clearance": 10.031974786008885,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.6833333333333333,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.055070359949459e-06,
+      "head_clearance": -15.991844019155545,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.6833333333333333,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.6038867865229123e-06,
+      "head_clearance": 9.23632789233336,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.7,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 7.173242144087799e-06,
+      "head_clearance": -17.19648669446351,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.7,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 9.235589158174983e-07,
+      "head_clearance": 8.593045316730606,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.7166666666666667,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 7.08527356226761e-06,
+      "head_clearance": -18.26056764225203,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.7166666666666667,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.2750162142949864e-06,
+      "head_clearance": 8.08285996995355,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.7333333333333333,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.6273543900288395e-06,
+      "head_clearance": -19.207138992175466,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.7333333333333333,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.480052733613126e-06,
+      "head_clearance": 7.687740848155379,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.75,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 4.628499630179178e-06,
+      "head_clearance": -19.94892192996113,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.75,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 9.036548059083508e-07,
+      "head_clearance": 7.3907527404344115,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.7666666666666667,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.8389120166730865e-06,
+      "head_clearance": -19.19826059086398,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.7666666666666667,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.8804861589461136e-06,
+      "head_clearance": 7.176086357066971,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.7833333333333333,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.8697608079211787e-06,
+      "head_clearance": -18.535377894258296,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.7833333333333333,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.5807199923321502e-06,
+      "head_clearance": 7.029229503765471,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.8,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.324575819472783e-06,
+      "head_clearance": -17.957391389538113,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.8,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.1351422983587374e-06,
+      "head_clearance": 6.9368388645810874,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.8166666666666667,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.5237075085736822e-06,
+      "head_clearance": -17.46294674137381,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.8166666666666667,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.834125907776339e-06,
+      "head_clearance": 6.886822998789917,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.8333333333333334,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 6.268840595545846e-06,
+      "head_clearance": -17.051167175238056,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.8333333333333334,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.61433285327649e-06,
+      "head_clearance": 6.868274227673886,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.85,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 6.40511557506369e-06,
+      "head_clearance": -16.72068566540067,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.85,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.8458518423270044e-06,
+      "head_clearance": 6.871654558659841,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.8666666666666667,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 7.224400058438689e-06,
+      "head_clearance": -16.468700662379256,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.8666666666666667,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.56145047414725e-06,
+      "head_clearance": 6.888629348812575,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.8833333333333333,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.0430221339430738e-05,
+      "head_clearance": -16.290131600302338,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.8833333333333333,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.4083914535279933e-06,
+      "head_clearance": 6.9121453333386675,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.9,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.1265353236508224e-06,
+      "head_clearance": -16.17695217214621,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.9,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.4908873734951092e-06,
+      "head_clearance": 6.936409799351178,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.9166666666666666,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 6.00367899542028e-06,
+      "head_clearance": -16.117671691682485,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.9166666666666666,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.4563415848060672e-06,
+      "head_clearance": 6.95695410230439,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.9333333333333333,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.768314849645873e-06,
+      "head_clearance": -16.096876452178236,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.9333333333333333,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.3260251957843534e-06,
+      "head_clearance": 6.970558545498591,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.95,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.2405026088112576e-06,
+      "head_clearance": -16.09501736522609,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.95,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.729053073785914e-06,
+      "head_clearance": 6.975314237344687,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.9666666666666667,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 4.732676860919945e-06,
+      "head_clearance": -16.07377285264416,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.9666666666666667,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.3752339906064932e-06,
+      "head_clearance": 6.940847160578674,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.9833333333333333,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.0022676085860516e-06,
+      "head_clearance": -16.171769962460594,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 0.9833333333333333,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.615182103595636e-06,
+      "head_clearance": 7.0711153529110256,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.2373851227502565e-06,
+      "head_clearance": -15.872244247498237,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.0998511000754913e-06,
+      "head_clearance": 6.673202327076087,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.0166666666666666,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.6620733390005616e-07,
+      "head_clearance": -16.52489159625865,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.0166666666666666,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.0835983174351748e-06,
+      "head_clearance": 7.665969983292015,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.0333333333333334,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 5.583034647345282e-06,
+      "head_clearance": -15.958721994373633,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.0333333333333334,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.659375159629704e-06,
+      "head_clearance": 6.7301409841511095,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.05,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.228769521931681e-06,
+      "head_clearance": -15.392394268488527,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.05,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.315304809515431e-06,
+      "head_clearance": 5.880462395429159,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.0666666666666667,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.3062683917628898e-06,
+      "head_clearance": -16.986397362684574,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.0666666666666667,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.2246360994373143e-06,
+      "head_clearance": 8.368221956910673,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.0833333333333333,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.1712509430968655e-06,
+      "head_clearance": -15.682313158540117,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.0833333333333333,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.1942685652427081e-06,
+      "head_clearance": 6.467029633897351,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.1,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 5.353012613785541e-06,
+      "head_clearance": -16.182770884709683,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.1,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.3102621486620616e-06,
+      "head_clearance": 7.047072142169345,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.1166666666666667,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.933264687065859e-06,
+      "head_clearance": -16.12290889847276,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.1166666666666667,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.231156931734435e-06,
+      "head_clearance": 6.926231985858582,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.1333333333333333,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 5.465089706905087e-06,
+      "head_clearance": -15.564387583779052,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.1333333333333333,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.754636495410385e-06,
+      "head_clearance": 6.259855081715884,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.15,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 6.570674191780913e-06,
+      "head_clearance": -17.06607163838549,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.15,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.5490830867644194e-06,
+      "head_clearance": 8.529572501139025,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.1666666666666667,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.386000655492231e-06,
+      "head_clearance": -15.473043845572082,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.1666666666666667,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 9.487660385316987e-07,
+      "head_clearance": 6.022070165023258,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.1833333333333333,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 6.202706998783866e-06,
+      "head_clearance": -15.781620956504101,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.1833333333333333,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.7470747510601045e-06,
+      "head_clearance": 6.429373795532005,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.2,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.2321609994305753e-06,
+      "head_clearance": -16.759848950533573,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.2,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.122542578450429e-06,
+      "head_clearance": 8.01922409451279,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.2166666666666666,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 7.945397055779141e-06,
+      "head_clearance": -15.585507802129019,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.2166666666666666,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.5767917603476717e-06,
+      "head_clearance": 6.330249029448307,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.2333333333333334,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.3290096266855706e-06,
+      "head_clearance": -16.577320813589612,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.2333333333333334,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.662705550230852e-06,
+      "head_clearance": 7.635082329723637,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.25,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.357475540614093e-06,
+      "head_clearance": -15.62879014747042,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.25,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 7.961944550860399e-07,
+      "head_clearance": 6.207950585564479,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.2666666666666666,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.1796846662752144e-06,
+      "head_clearance": -15.895924845213976,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.2666666666666666,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.382078676186571e-06,
+      "head_clearance": 6.735165971727859,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.2833333333333334,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.2698430333038992e-06,
+      "head_clearance": -17.030861432494216,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.2833333333333334,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.4558607787913455e-06,
+      "head_clearance": 8.479704326210186,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.3,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.0884608421798864e-06,
+      "head_clearance": -15.206106378918971,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.3,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.519104931662163e-06,
+      "head_clearance": 5.64710939273326,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.3166666666666667,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 6.2169185768611184e-06,
+      "head_clearance": -16.239630250204716,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.3166666666666667,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.3394598206738765e-06,
+      "head_clearance": 7.092298931594051,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.3333333333333333,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 6.1420927011251835e-06,
+      "head_clearance": -16.325085986082126,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.3333333333333333,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.5864245710811265e-06,
+      "head_clearance": 7.36323558887014,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.35,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.418212748248019e-06,
+      "head_clearance": -15.787648363834354,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.35,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.0161522024134367e-06,
+      "head_clearance": 6.627239848666882,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.3666666666666667,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 7.3500778311788475e-06,
+      "head_clearance": -16.728908069656455,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.3666666666666667,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.3569339754654217e-06,
+      "head_clearance": 7.867156181736245,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.3833333333333333,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 5.49128380692922e-06,
+      "head_clearance": -15.217183651448735,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.3833333333333333,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.6302152631286165e-06,
+      "head_clearance": 5.619824885521172,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.4,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.6299688513956658e-06,
+      "head_clearance": -16.331838308788758,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.4,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.6085066219188962e-06,
+      "head_clearance": 7.366502109030712,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.4166666666666667,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 4.489926044414159e-06,
+      "head_clearance": -16.629910521937468,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.4166666666666667,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.1284889519365274e-06,
+      "head_clearance": 7.857099738145621,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.4333333333333333,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 7.217491880557301e-06,
+      "head_clearance": -15.483864376908254,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.4333333333333333,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.704168368488816e-06,
+      "head_clearance": 6.059970249363943,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.45,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 3.973323877598331e-06,
+      "head_clearance": -16.350784167774787,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.45,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.1982156032414327e-06,
+      "head_clearance": 7.293143628833288,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.4666666666666666,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 6.324405642979508e-07,
+      "head_clearance": -15.98185507636023,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.4666666666666666,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.065855074010862e-06,
+      "head_clearance": 6.8280484714325915,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.4833333333333334,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.6187323248597032e-06,
+      "head_clearance": -16.1307853997772,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.4833333333333334,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.258319606182615e-06,
+      "head_clearance": 7.059726884509388,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.5,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.9398419946289344e-06,
+      "head_clearance": -16.189192071536034,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.5,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.4578823113854668e-06,
+      "head_clearance": 7.106067113417282,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.5166666666666666,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.358887535977644e-06,
+      "head_clearance": -16.00058858729847,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.5166666666666666,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.9741109047478497e-06,
+      "head_clearance": 6.828014314324207,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.5333333333333334,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.94852061886868e-06,
+      "head_clearance": -16.110967079971246,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.5333333333333334,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.2680219546137495e-06,
+      "head_clearance": 6.999616718723114,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.55,
+      "side": "left",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 1.2405026088112576e-06,
+      "head_clearance": -16.09501736522609,
+      "elbow_behind_hand": true
+    },
+    {
+      "t": 1.55,
+      "side": "right",
+      "unreachable_deficit": 0,
+      "hand_target_gap": 2.729053073785914e-06,
+      "head_clearance": 6.975314237344687,
+      "elbow_behind_hand": true
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "preExistingFilesUnchanged": 36,
+  "sourceFilesUnchanged": 15,
+  "videos": [
+    {
+      "name": "walk-toggle-planted-push-4k60.mp4",
+      "bytes": 1352139,
+      "width": 3840,
+      "height": 2160,
+      "fps": "60/1",
+      "frames": "821",
+      "duration": "13.683333",
+      "codec": "h264",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709",
+      "fastStart": true
+    },
+    {
+      "name": "walk-toggle-planted-push-1080p60.mp4",
+      "bytes": 669236,
+      "width": 1920,
+      "height": 1080,
+      "fps": "60/1",
+      "frames": "821",
+      "duration": "13.683333",
+      "codec": "h264",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709",
+      "fastStart": true
+    }
+  ]
+}

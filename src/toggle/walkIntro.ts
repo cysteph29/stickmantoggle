@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import { handLocal } from './layout.ts'
 import { applyRig, reachArm, rigToPose, type PushRig } from './pushRig.ts'
 
+import { applyWalkContactArms } from './walkContactArms.ts'
 import { WALK_REST } from './walkComposition.ts'
 
 export const WALK_DURATION = 1.2
@@ -78,7 +79,9 @@ export function createWalkIntro(svg: SVGSVGElement, onComplete: () => void) {
   const actor = svg.getElementById('walk-actor')
   const clock = { time: 0 }
   const render = () => {
-    applyRig(svg, sampleWalk(clock.time))
+    const rig = sampleWalk(clock.time)
+    applyRig(svg, rig)
+    applyWalkContactArms(svg, rig, smooth(progress(clock.time, 0.77, WALK_DURATION)))
     actor?.setAttribute('opacity', '1')
     // Offstage visibility is intentional, including after hand contact.
     actor?.setAttribute('clip-path', 'url(#walk-reveal)')

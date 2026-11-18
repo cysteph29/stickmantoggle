@@ -1,0 +1,14 @@
+{
+  "max_surface_offset_change_px": 1.464414128804492e-05,
+  "samples": 630,
+  "fps": 60,
+  "changed_interval_seconds": [
+    0.48,
+    3.25
+  ],
+  "non_arm_svg_attributes": "identical",
+  "outside_interval_svg": "identical",
+  "bone_lengths_vs_baseline": "identical",
+  "elbow_bend_sign": "positive throughout corrected interval",
+  "max_elbow_step_px_at_60fps": 11.459451811998184
+}
