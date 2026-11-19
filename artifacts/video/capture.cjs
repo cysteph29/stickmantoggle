@@ -21,7 +21,7 @@ const file = path.join(out, 'walk-intro-1080p60.mp4');
     const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1, reducedMotion: 'no-preference' });
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
-    await page.goto(process.env.CAPTURE_URL || 'http://127.0.0.1:5173/?intro=walk');
+    await page.goto(process.env.CAPTURE_URL || 'http://127.0.0.1:5173/');
     await page.locator('#knob').waitFor();
     await page.addStyleTag({ content: '.stage-svg { width: 1680px !important; } * { cursor: none !important; }' });
     await page.evaluate(async () => {

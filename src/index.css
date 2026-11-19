@@ -146,55 +146,11 @@ body {
   --ink: var(--figure-ink);
 }
 
-/* The existing stage stays untouched until the final gathering step begins. */
-.portfolio-reveal { overflow: hidden; }
-.portfolio-preview {
-  --paper: #14161b;
-  --track: #1d2027;
-  --knob: #262a32;
-  --ink: #ece9e2;
-  --figure-ink: #ece9e2;
-  background: var(--paper);
-  color: var(--ink);
-}
-.portfolio-type {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  font-size: min(10vw, 19svh);
-  font-weight: 600;
-  letter-spacing: -0.055em;
-  line-height: 1.12;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 1.1s cubic-bezier(.45, 0, .55, 1);
-}
-.portfolio-type h1, .portfolio-type p {
-  margin: 0;
-  font: inherit;
-  letter-spacing: inherit;
-}
-.portfolio-reveal .stage { z-index: 1; }
-.portfolio-reveal .stage-svg {
-  opacity: 1;
-  transition: opacity 1.1s cubic-bezier(.45, 0, .55, 1), width 1.1s cubic-bezier(.45, 0, .55, 1), translate 1.1s cubic-bezier(.45, 0, .55, 1);
-}
-.portfolio-reveal.is-revealed .stage-svg {
-  opacity: 0;
-  pointer-events: none;
-  width: min(14vw, 26svh);
-  /* Center the visible outline, whose midpoint sits below the SVG midpoint. */
-  /* Same endpoint as -2.05% of the final SVG height, expressed as a
-     viewport length so translation does not multiply the changing width. */
-  translate: 0 calc(min(14vw, 26svh) * -0.012007142857);
-}
-.is-revealed .portfolio-type { opacity: 1; visibility: visible; }
-.portfolio-preview .stage-svg, .portfolio-preview .portfolio-type { transition: none; }
-@media (prefers-reduced-motion: reduce) {
-  .portfolio-reveal .stage-svg, .portfolio-reveal .portfolio-type { transition-duration: 0s; }
+/* Joint discs match the round limb caps without widening the silhouette. */
+.stage-svg--uniform .limb {
+  stroke-width: 3;
 }
 
-.portfolio-reveal.is-revealed .knob { pointer-events: none; }
+.stage-svg--uniform .joint-dot {
+  r: 1.5;
+}

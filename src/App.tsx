@@ -6,18 +6,9 @@ import {
 } from './toggle/layout.ts'
 import type { KnobSide } from './toggle/layout.ts'
 import { INITIAL_RIG, applyRig, type PushRig } from './toggle/pushRig.ts'
-import { createPushTimeline } from './toggle/pushTimeline.ts'
-
 import { createWalkPushTimeline } from './toggle/walkPush.ts'
 import { WALK_REST } from './toggle/walkComposition.ts'
 import { createWalkIntro, prepareWalk } from './toggle/walkIntro.ts'
-import { PortfolioOutro, PortfolioType } from './components/PortfolioOutro.tsx'
-
-const WALK_INTRO = new URLSearchParams(window.location.search).get('intro') === 'walk'
-const PORTFOLIO_OUTRO = WALK_INTRO
-  && new URLSearchParams(window.location.search).get('outro') === 'portfolio'
-const PORTFOLIO_PREVIEW = PORTFOLIO_OUTRO
-  && new URLSearchParams(window.location.search).get('preview') === 'outro'
 
 const INITIAL_KNOB_SIDE: KnobSide = 'left'
 
@@ -25,14 +16,13 @@ const INITIAL_KNOB_SIDE: KnobSide = 'left'
 const SHOW_DEBUG = new URLSearchParams(window.location.search).has('debug')
 
 export default function App() {
-  return PORTFOLIO_PREVIEW ? <PortfolioOutro /> : <TogglePlayground />
+  return <TogglePlayground />
 }
 
 function TogglePlayground() {
-  const [outroVisible, setOutroVisible] = useState(false)
   const [knobSide, setKnobSide] = useState<KnobSide>(INITIAL_KNOB_SIDE)
   const [showJoints, setShowJoints] = useState(SHOW_DEBUG)
-  const [renderRig, setRenderRig] = useState<PushRig>(WALK_INTRO ? WALK_REST : INITIAL_RIG)
+  const [renderRig, setRenderRig] = useState<PushRig>(WALK_REST)
   const svgRef = useRef<SVGSVGElement>(null)
   const timelineRef = useRef<gsap.core.Timeline | null>(null)
 
@@ -40,18 +30,17 @@ function TogglePlayground() {
 
   /** Stops any push and writes the rest pose back over the animated DOM. */
   function restoreRestPose(side: KnobSide) {
-    setOutroVisible(false)
     timelineRef.current?.kill()
     timelineRef.current = null
     document.documentElement.style.setProperty('--theme', side === 'right' ? '1' : '0')
     document.documentElement.style.setProperty('--figure-theme', side === 'right' ? '1' : '0')
-    const rest = WALK_INTRO && side === 'left'
+    const rest = side === 'left'
       ? WALK_REST
       : { ...INITIAL_RIG, knobX: knobCenterX(side) }
     setRenderRig(rest)
     if (svgRef.current) {
       applyRig(svgRef.current, rest)
-      if (WALK_INTRO) prepareWalk(svgRef.current)
+      prepareWalk(svgRef.current)
     }
   }
 
@@ -60,17 +49,14 @@ function TogglePlayground() {
     const svg = svgRef.current
     const startPush = () => {
       svg.getElementById('walk-actor')?.setAttribute('opacity', '1')
-      timelineRef.current = (WALK_INTRO ? createWalkPushTimeline : createPushTimeline)(svg, (finishedRig) => {
+      timelineRef.current = createWalkPushTimeline(svg, (finishedRig) => {
         // React must reconcile the completed pose, not a new initial grip.
         setRenderRig(finishedRig)
         setKnobSide('right')
         timelineRef.current = null
       })
-      if (PORTFOLIO_OUTRO) {
-        timelineRef.current.call(() => setOutroVisible(true), [], 'closeStance')
-      }
     }
-    if (WALK_INTRO && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       timelineRef.current = createWalkIntro(svg, startPush)
     } else {
       startPush()
@@ -88,8 +74,7 @@ function TogglePlayground() {
   }
 
   return (
-    <main className={`page${PORTFOLIO_OUTRO ? ' portfolio-reveal' : ''}${outroVisible ? ' is-revealed' : ''}`}>
-      {PORTFOLIO_OUTRO && <PortfolioType />}
+    <main className="page">
       {SHOW_DEBUG && (
         <DebugPanel
           knobSide={knobSide}
@@ -100,7 +85,7 @@ function TogglePlayground() {
         />
       )}
       <ToggleStage
-        walkIntro={WALK_INTRO}
+        uniform={new URLSearchParams(window.location.search).get('variant') === 'uniform'}
         rig={renderRig}
         showJoints={showJoints}
         svgRef={svgRef}

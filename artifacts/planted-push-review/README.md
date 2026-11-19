@@ -32,4 +32,4 @@ Numerical checks cover 1,259 samples. See `verification.json` and `clearance.jso
 
 Normal-speed and slow playback were **not reviewed**: the live browser bridge still fails to start. This was a rendered sequential-frame review, not a claim of watching playback.
 
-Preview: http://127.0.0.1:5173/?intro=walk
+Preview: http://127.0.0.1:5173/

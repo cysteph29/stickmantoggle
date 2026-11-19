@@ -8,7 +8,7 @@ YUV 4:2:0, full-range RGB to limited-range BT.709 matrix conversion,
 BT.709 metadata, fast-start MP4, and no audio. Levels are 5.2 and 4.2,
 respectively. Original exports are retained.
 
-The unchanged application is loaded at `http://127.0.0.1:5173/?intro=walk`.
+The unchanged application is loaded at `http://127.0.0.1:5173/`.
 No portfolio outro or click ripple is added. The shared GSAP root is advanced
 at exact 1/60-second increments. The original React click is dispatched at
 0.5 seconds; the entrance hands off to the push at 1.7 seconds. Recovery

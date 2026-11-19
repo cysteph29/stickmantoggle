@@ -24,7 +24,7 @@ assert(!fs.existsSync(file), 'Refusing to overwrite an existing export');
     const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: scale, reducedMotion: 'no-preference' });
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
-    await page.goto('http://127.0.0.1:5173/?intro=walk');
+    await page.goto('http://127.0.0.1:5173/');
     await page.locator('#knob').waitFor();
     await page.addStyleTag({ content: '.stage-svg { width: 1680px !important; } * { cursor: none !important; }' });
     await page.evaluate(async () => {

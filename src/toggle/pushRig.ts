@@ -1,3 +1,4 @@
+import { isUniform, uniformRig } from './uniformRig.ts'
 /**
  * Animation state for the push sequence and the code that drives the SVG.
  *
@@ -206,7 +207,8 @@ function setRotate(svg: SVGSVGElement, id: string, degrees: number) {
 }
 
 /** Writes the rig straight to the stage SVG, bypassing React for each frame. */
-export function applyRig(svg: SVGSVGElement, rig: PushRig) {
+export function applyRig(svg: SVGSVGElement, input: PushRig) {
+  const rig = isUniform(svg) ? uniformRig(input) : input
   const pose = rigToPose(rig)
   svg
     .getElementById('character-root')

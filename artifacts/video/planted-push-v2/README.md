@@ -1,6 +1,6 @@
 # Current planted-push exports
 
-Captured the live http://127.0.0.1:5173/?intro=walk application with the current production source. No saved pre-correction source or portfolio mode was used. Source SHA-256 manifest is included.
+Captured the live http://127.0.0.1:5173/ application with the current production source. No saved pre-correction source or portfolio mode was used. Source SHA-256 manifest is included.
 
 Both MP4s: 60 fps, 821 frames, 13.683333 seconds; H.264 High, CRF 12, slow preset, YUV 4:2:0, limited-range BT.709 conversion and metadata, fast-start, no audio. Trigger at frame 30 (0.5 seconds); entrance-to-push handoff at frame 102 (1.7 seconds); recovery completes at frame 731; 90 completed-state frames provide 1.5 seconds of final hold.
 
